@@ -1,0 +1,738 @@
+<title>Atlas de Observatorios del Uruguay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: identidad científica institucional (Source Sans 3, azul institucional con acento naranja, íconos de línea en círculos, acuarelas y red de nodos). Portada con mapa de Uruguay en matriz de puntos animado; debajo, resultados, cobertura, ODS y metodología. */
+:root{
+  --paper:#F5F2ED; --paper-2:#ECE8E1; --surface:#FFFFFF; --mist:#E6ECF2;
+  --navy:#0E3A6D; --blue:#4F6F9E; --sky:#A9C2DD; --orange:#D88F4A; --gray:#6F7479;
+  --ink:#1F2A36; --head:#0E3A6D; --muted:#6F7479; --line:#DDD8CF; --hair:#C9C3B8;
+  --accent:#0E3A6D; --accent-soft:#E6ECF2; --gold:#C47A35; --gold-soft:#F6E6D6;
+  --a1:#0E3A6D; --a2:#4F6F9E; --a3:#D88F4A; --a4:#0E3A6D; --a5:#4F6F9E; --a6:#D88F4A; --a7:#0E3A6D; --a8:#4F6F9E;
+  --ok:#2F7A5B; --ok-bg:#DCEDE4; --warn:#A06A12; --warn-bg:#F6EBCF; --ind:#B4602A; --ind-bg:#F7E2D2; --bad:#B0413A; --bad-bg:#F5DAD6;
+  --f-display:"Source Sans 3","Source Sans Pro","Segoe UI",Arial,sans-serif;
+  --f-body:"Source Sans 3","Source Sans Pro","Segoe UI",Arial,sans-serif;
+  --f-mono:"Source Code Pro",Consolas,monospace;
+  --r:10px;
+}
+:root,:root[data-theme="dark"]{color-scheme:light}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{text-wrap:balance;margin:0;color:var(--head)}
+.eyebrow{font-family:var(--f-body);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--head)}
+.mono{font-family:var(--f-mono)}
+.num{font-variant-numeric:tabular-nums}
+.ln{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.draw{stroke-dasharray:1;stroke-dashoffset:0}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+
+/* barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:60px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--head);text-decoration:none;font-weight:700;font-size:20px;letter-spacing:-.01em}
+.brand svg{flex:none}
+.brand i{font-style:normal;font-weight:400;color:var(--blue)}
+.tag-proto{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);padding:2px 8px;border-radius:999px}
+.nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap;align-items:center}
+.nav a{color:var(--ink);text-decoration:none;font-size:14.5px;padding:6px 10px;border-radius:6px;transition:color .2s,background .2s}
+.nav a:hover{color:var(--head);background:var(--mist)}
+.navbtn{border:0;background:var(--navy);color:var(--paper);border-radius:999px;padding:7px 14px;font:600 14px var(--f-body);cursor:pointer;margin-left:6px;transition:transform .2s}
+.navbtn:hover{transform:translateY(-1px)}
+
+/* portada */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.wc{position:absolute;border-radius:50%;pointer-events:none;filter:url(#wcf);opacity:.5;animation:drift 22s ease-in-out infinite alternate}
+.wc1{width:540px;height:540px;right:-110px;top:-120px;background:radial-gradient(circle at 45% 45%,var(--sky) 0%,color-mix(in srgb,var(--sky) 45%,transparent) 45%,transparent 70%)}
+.wc2{width:420px;height:420px;right:26%;bottom:-150px;background:radial-gradient(circle,var(--orange) 0%,color-mix(in srgb,var(--orange) 35%,transparent) 42%,transparent 70%);opacity:.36;animation-duration:28s}
+.wc3{width:320px;height:320px;left:-130px;top:30%;background:radial-gradient(circle,var(--orange) 0%,color-mix(in srgb,var(--orange) 30%,transparent) 40%,transparent 70%);opacity:.28;animation-duration:32s}
+.wc4{width:300px;height:300px;right:6%;top:46%;background:radial-gradient(circle,var(--blue) 0%,color-mix(in srgb,var(--blue) 35%,transparent) 42%,transparent 70%);opacity:.3;animation-duration:26s}
+@keyframes drift{from{transform:translate(0,0) scale(1) rotate(0)}to{transform:translate(-30px,24px) scale(1.08) rotate(12deg)}}
+/* lupa */
+.lensbg{fill:var(--paper)}
+.lensring{fill:none;stroke:var(--orange);stroke-width:1.4;pointer-events:none}
+.dnum{font:700 26px var(--f-body);fill:currentColor}
+.dsub2{font:700 8.5px var(--f-body);letter-spacing:.06em;fill:var(--head)}
+.lensring2{fill:none;stroke:var(--sky);stroke-width:1.2;stroke-dasharray:2 5;transform-box:fill-box;transform-origin:center;animation:spinr 18s linear infinite}
+@keyframes spinr{to{transform:rotate(360deg)}}
+.lenshandle{stroke:var(--navy);stroke-width:11;stroke-linecap:round}
+.lensui{pointer-events:none;filter:drop-shadow(0 6px 10px color-mix(in srgb,var(--navy) 22%,transparent))}
+.lensview{pointer-events:none}
+.lnode{fill:var(--navy);stroke:var(--surface);stroke-width:1}
+.ltxt{font:700 9px var(--f-body);fill:var(--head);paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.lcnt{font:600 7px var(--f-body);fill:var(--orange);paint-order:stroke;stroke:var(--surface);stroke-width:2.5px}
+.lenslbl{font:700 14px var(--f-body);fill:var(--head);paint-order:stroke;stroke:var(--paper);stroke-width:5px}
+.lli{font-size:12px;font-weight:600} .lli.ok{fill:var(--orange)} .lli.gap{fill:var(--muted)}
+.art-hint{position:absolute;right:4%;bottom:2%;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+/* ilustración */
+.wash{filter:url(#paint);transform-box:fill-box;transform-origin:center;animation:breathe 14s ease-in-out infinite alternate}
+.wash.sky{fill:var(--sky);opacity:.75} .wash.org{fill:var(--orange);opacity:.6;animation-duration:17s} .wash.org.s{opacity:.45} .wash.blu{fill:var(--blue);opacity:.35;animation-duration:19s}
+@keyframes breathe{from{transform:scale(1) rotate(0)}to{transform:scale(1.06) rotate(8deg)}}
+.cline{stroke:var(--blue);stroke-width:.8;opacity:.35;fill:none;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s ease-out both;animation-delay:calc(var(--i) * 90ms + 300ms)}
+.cdot{fill:var(--navy);opacity:.7;transform-box:fill-box;transform-origin:center;animation:twinkle 3.4s ease-in-out infinite;animation-delay:calc(var(--k) * 170ms)} .cdot.o{fill:var(--orange)}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+.dish{fill:var(--surface);stroke:var(--navy);stroke-width:1.5}
+.dish2{fill:var(--sky);opacity:.45;filter:url(#paint)}
+.cmem{fill:color-mix(in srgb,var(--surface) 70%,transparent);stroke:var(--blue);stroke-width:1.3} .cnuc{fill:var(--orange);opacity:.85}
+.cell{animation:cellmove 9s ease-in-out infinite alternate;animation-delay:calc(var(--d) * -1.3s)}
+@keyframes cellmove{0%{transform:translate(0,0)}50%{transform:translate(3px,-4px)}100%{transform:translate(-3px,3px)}}
+.sbar{fill:var(--blue);opacity:.42;transform-box:fill-box;transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms + 500ms)} .sbar.o{fill:var(--orange);opacity:.6}
+@keyframes grow{from{transform:scaleY(.05)}to{transform:none}}
+.trend{fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s ease-out 1.4s both}
+.tnode{fill:var(--orange);transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-in-out infinite 3s}
+.stem{fill:none;stroke:var(--navy);stroke-width:1.6}
+.leaf{fill:var(--blue);opacity:.8;stroke:var(--navy);stroke-width:1}
+.plant{transform-box:fill-box;transform-origin:bottom left;animation:sway 6s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(3deg)}}
+.rung{stroke:var(--sky);stroke-width:1.2}
+.bp.a{fill:var(--navy)} .bp.b{fill:var(--orange)}
+.bfill{fill:var(--surface)} .bshade{fill:var(--sky);opacity:.35;filter:url(#paint)}
+.bline{fill:none;stroke:var(--navy);stroke-width:3;stroke-linejoin:round}
+.curl,.bdet{fill:none;stroke:var(--navy);stroke-width:2.4;stroke-linecap:round} .bped{fill:var(--surface);stroke:var(--navy);stroke-width:2.4}
+.bust{animation:floaty 7s ease-in-out infinite alternate}
+@keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+.syn{stroke:var(--blue);stroke-width:2;fill:none;stroke-dasharray:6 6;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-24}}
+.neuron{fill:var(--blue);transform-box:fill-box;transform-origin:center;animation:pulse 2.6s ease-in-out infinite;animation-delay:calc(var(--k) * 260ms)} .neuron.o{fill:var(--orange)}
+.coat{fill:var(--surface);stroke:var(--navy);stroke-width:1.6;stroke-linejoin:round}
+.coat-w{fill:var(--sky);opacity:.55;filter:url(#paint)}
+.shirt{fill:var(--mist)}
+.sline{fill:none;stroke:var(--navy);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.neck,.skin{fill:color-mix(in srgb,var(--orange) 14%,var(--surface));stroke:var(--navy);stroke-width:1.5;stroke-linejoin:round}
+.hair{fill:var(--navy)} .strand-h{fill:none;stroke:var(--blue);stroke-width:1.2;opacity:.8}
+.arm{fill:var(--surface);stroke:var(--navy);stroke-width:1.5;stroke-linejoin:round}
+.tube{stroke:var(--navy);stroke-width:17;stroke-linecap:round} .tube-h{stroke:var(--blue);stroke-width:3;stroke-linecap:round;opacity:.8}
+.mic{fill:var(--navy)}
+.knob{fill:var(--surface);stroke:var(--navy);stroke-width:2}
+.lamp{fill:var(--orange);transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-in-out infinite}
+/* tarjetas de búsqueda estilo código */
+.prompts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding-block:8px 18px}
+@media (max-width:980px){.prompts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.prompts{grid-template-columns:minmax(0,1fr)}}
+.prompt{position:relative;display:flex;flex-direction:column;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px;cursor:pointer;font-family:var(--f-body);color:var(--ink);box-shadow:0 1px 0 var(--line);transition:transform .25s,box-shadow .25s,border-color .25s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d) * 90ms + 500ms);overflow:hidden}
+.prompt::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--navy),var(--blue) 60%,var(--orange));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.prompt:hover{transform:translateY(-4px);box-shadow:0 18px 34px color-mix(in srgb,var(--navy) 14%,transparent);border-color:var(--sky)}
+.prompt:hover::before{transform:none}
+.ptop{display:flex;align-items:center;justify-content:space-between}
+.ptag{font:500 12.5px var(--f-mono);color:var(--orange);background:var(--gold-soft);border-radius:6px;padding:2px 8px}
+.pdots{display:flex;gap:4px} .pdots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.prompt:hover .pdots i:nth-child(1){background:var(--orange)} .prompt:hover .pdots i:nth-child(2){background:var(--sky)} .prompt:hover .pdots i:nth-child(3){background:var(--blue)}
+.ptxt{flex:1;font-size:16.5px;font-weight:600;line-height:1.3;color:var(--head)}
+.pres{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:10px}
+.pcode{font:500 12.5px var(--f-mono);color:var(--blue)}
+.pgo{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:var(--navy);color:var(--paper);font-weight:600;font-size:13.5px;border-radius:999px;padding:6px 13px;transition:gap .2s}
+.prompt:hover .pgo{gap:10px}
+.prompts-h{display:flex;align-items:baseline;gap:12px;margin-top:6px}
+.prompts-h h2{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--head)}
+.prompts-h span{font:500 12.5px var(--f-mono);color:var(--muted)}
+.temas{padding-block:6px 4px}
+.temas h2{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--head);margin-bottom:12px}
+.temas-row{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px}
+@media (max-width:900px){.temas-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tema{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;cursor:pointer;padding:6px 2px;font-family:var(--f-body);color:var(--head);animation:rise .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d) * 60ms + 300ms)}
+.tema .tc2{width:62px;height:62px;border-radius:50%;border:1.4px solid var(--navy);display:grid;place-items:center;background:var(--surface);transition:transform .25s,background .25s}
+.tema .tc2 svg{width:36px;height:36px}
+.tema:hover .tc2{transform:translateY(-3px);background:var(--mist)}
+.tema .tl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;line-height:1.2}
+.tema .tn2{font-size:12px;color:var(--orange);font-weight:600}
+.hero .wrap.hgrid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;padding-block:48px 18px}
+@media (max-width:920px){.hero .wrap.hgrid{grid-template-columns:minmax(0,1fr)}}
+.hero h1{font-weight:700;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em;margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero h1 .w{display:inline-block;animation:wordIn .8s cubic-bezier(.2,.7,.1,1) both;animation-delay:calc(var(--d) * 70ms + 150ms)}
+@keyframes wordIn{from{transform:translateY(.4em)}to{transform:none}}
+.tagline{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:14px}
+.lead{color:var(--ink);font-size:17.5px;max-width:52ch;margin:16px 0 22px}
+.search{display:flex;max-width:620px;background:var(--surface);border:1.5px solid var(--navy);border-radius:999px;overflow:hidden;transition:box-shadow .25s}
+.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:400 17px var(--f-body);padding:14px 22px}
+.search input:focus{outline:none}
+.search button{border:0;background:var(--navy);color:var(--paper);font:600 15px var(--f-body);padding:0 24px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.search:focus-within{box-shadow:0 0 0 5px color-mix(in srgb,var(--sky) 45%,transparent)}
+.chips-try{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;align-items:center}
+.chips-try span{color:var(--muted);font-size:14px}
+.chips-try button{background:var(--surface);border:1px solid var(--line);color:var(--head);border-radius:999px;padding:4px 13px;font:500 14px var(--f-body);cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.chips-try button:hover{border-color:var(--orange);transform:translateY(-1px)}
+.howto{list-style:none;counter-reset:h;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:0;margin:22px 0 0;max-width:640px;font-size:14px;color:var(--muted)}
+@media (max-width:560px){.howto{grid-template-columns:minmax(0,1fr)}}
+.howto li{counter-increment:h;display:block;border-top:2px solid var(--sky);padding-top:8px}
+.howto li::before{content:counter(h);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:var(--paper);font-weight:700;font-size:12px;margin-right:7px;vertical-align:1px}
+.howto b{color:var(--head);font-weight:600}
+
+.art{position:relative;width:100%;max-width:600px;justify-self:center;aspect-ratio:600/560}
+.art > svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mapdot{fill:var(--navy);opacity:.75;animation:dotIn .9s ease-out both;animation-delay:calc(var(--x) * 2.2ms + 200ms)}
+@keyframes dotIn{from{opacity:0;transform:scale(.2)}to{opacity:.75;transform:none}}
+.mapdot{transform-box:fill-box;transform-origin:center}
+.node{fill:var(--orange);transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-in-out infinite;animation-delay:calc(var(--k) * 230ms)}
+.node.b{fill:var(--blue)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.6)}}
+.edge{stroke:var(--blue);stroke-width:1;opacity:.45;fill:none}
+.spoke{stroke:var(--hair);stroke-width:1;stroke-dasharray:3 4;fill:none}
+.packet{fill:var(--orange)}
+.aicon{cursor:pointer}
+.aicon .ring{fill:var(--surface);stroke:var(--navy);stroke-width:1.4;transition:fill .25s}
+.aicon .ic{color:var(--navy)}
+.aicon text{font:700 10.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;fill:var(--head)}
+.aicon .cnt{font:700 12px var(--f-body);letter-spacing:0;fill:var(--orange);text-transform:none}
+.aicon:hover .ring,.aicon:focus-visible .ring{fill:var(--mist)}
+.aicon .ic .ln{animation:draw 1.4s cubic-bezier(.6,.1,.2,1) both;animation-delay:calc(var(--d) * 110ms + 700ms)}
+.aicon g.scl{transition:transform .25s;transform-box:fill-box;transform-origin:center}
+.aicon:hover g.scl{transform:scale(1.08)}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding-block:22px 34px;border-top:1px solid var(--line);position:relative}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}
+.kpi .ci{width:48px;height:48px;border-radius:50%;border:1.4px solid var(--navy);display:grid;place-items:center;color:var(--navy);background:var(--surface)}
+.kpi .ci svg{width:30px;height:30px}
+.kpi b{display:block;font-size:30px;font-weight:700;color:var(--head);line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+
+/* secciones */
+section.block{padding-block:64px;position:relative}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+@media (max-width:760px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+.sec-head h2{font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.08;margin-top:8px;letter-spacing:-.015em}
+.sec-head h2 em{font-style:normal;color:var(--blue)}
+.sec-head p{color:var(--muted);max-width:64ch;margin:10px 0 0}
+.sec-head .legend{grid-column:1/-1;justify-content:flex-start}
+.closebtn{align-self:end;border:1px solid var(--line);background:var(--surface);color:var(--head);border-radius:999px;padding:7px 16px;font:600 14px var(--f-body);cursor:pointer}
+.closebtn:hover{border-color:var(--navy)}
+#resultados{scroll-margin-top:60px}
+@supports (animation-timeline:view()){
+  .sec-head h2{animation:slideIn linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+  .area .glyph .ln{animation:draw linear both;animation-timeline:view();animation-range:entry 10% cover 35%}
+  .odst{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+}
+@keyframes slideIn{from{transform:translateX(-20px)}to{transform:none}}
+
+/* resultados */
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;align-items:start}
+@media (max-width:880px){.layout{grid-template-columns:minmax(0,1fr)}}
+.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);display:flex;flex-direction:column;gap:16px}
+@media (max-width:880px){.filters{position:static}}
+.filters details{border-bottom:1px solid var(--line);padding-bottom:12px}
+.filters summary{cursor:pointer;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--head);list-style:none;display:flex;justify-content:space-between}
+.filters summary::-webkit-details-marker{display:none}
+.filters summary::after{content:"+";color:var(--muted)}
+.filters details[open] summary::after{content:"–"}
+.fopts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.fbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 11px 4px 6px;font:500 13.5px var(--f-body);cursor:pointer;transition:all .15s}
+.fbtn svg{width:18px;height:18px}
+.fbtn:hover{border-color:var(--navy)}
+.fbtn[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.fbtn[aria-pressed="true"] svg{color:var(--paper)!important}
+.fbtn .n{opacity:.6;font-variant-numeric:tabular-nums}
+.check{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:8px;cursor:pointer}
+.check input{accent-color:var(--navy)}
+.reset{align-self:flex-start;background:none;border:0;color:var(--blue);font:600 14px var(--f-body);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
+.qbar{margin-bottom:14px}
+.qbar .search{max-width:none;border-color:var(--hair)}
+.interp{border:1px solid var(--line);background:var(--paper);border-radius:var(--r);padding:11px 14px;margin-bottom:14px;font-size:14px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.interp .lbl{color:var(--muted)}
+.concept{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 10px;font-weight:600;font-size:13.5px;background:var(--paper-2)}
+.concept.t{background:var(--mist);color:var(--head)}
+.concept.e{background:var(--gold-soft);color:var(--gold)}
+.agesic{margin-left:auto;font-weight:600;text-decoration:none;white-space:nowrap}
+.count{font-size:14px;color:var(--muted);margin-bottom:6px}
+.count b{color:var(--head)}
+.group-title{display:flex;align-items:center;gap:12px;margin:22px 0 12px;font-size:20px;font-weight:700;color:var(--head)}
+.group-title small{font-size:12px;color:var(--muted);font-weight:600;background:var(--paper-2);border-radius:999px;padding:1px 8px}
+.group-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0;transition:border-color .2s,transform .25s,box-shadow .25s;animation:rise .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 24ms)}
+.card:hover{border-color:var(--sky);transform:translateY(-3px);box-shadow:0 14px 30px color-mix(in srgb,var(--navy) 12%,transparent)}
+.card.ref{border-top:3px solid var(--orange)}
+.card .meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.card .meta .amb{margin-left:auto}
+.card .glyph{width:32px;height:32px;flex:none}
+.rank{display:inline-grid;place-items:center;min-width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--paper);font:700 15px var(--f-body)}
+.card h3{font-size:19px;font-weight:700;line-height:1.2}
+.card h3 a{color:var(--head);text-decoration:none}
+.card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.card .inst{font-size:14px;color:var(--blue);font-weight:600;margin-top:-4px}
+.card .desc{font-size:14.5px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font:600 12px var(--f-body);border-radius:999px;padding:2px 9px;background:var(--mist);color:var(--head);border:0;cursor:pointer}
+.chip.sec{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:500}
+.chip.enf{background:var(--gold-soft);color:var(--gold)}
+.chip:hover{outline:1px solid var(--navy)}
+.foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.ods-sq{width:22px;height:22px;border-radius:4px;font:700 11px var(--f-body);display:inline-grid;place-items:center;flex:none}
+.lvl{display:inline-flex;align-items:center;gap:6px}
+.lvl i{display:inline-flex;gap:2px;align-items:flex-end}
+.lvl i b{width:5px;border-radius:1px;background:var(--line)}
+.lvl i b:nth-child(1){height:5px}.lvl i b:nth-child(2){height:8px}.lvl i b:nth-child(3){height:11px}.lvl i b:nth-child(4){height:14px}
+.lvl i b.on{background:var(--blue)}
+.lvl i b.on:nth-child(4){background:var(--orange)}
+.vig{margin-left:auto}
+.vig.ok{color:var(--ok);font-weight:600}
+.more{background:none;border:0;color:var(--blue);font:600 13.5px var(--f-body);cursor:pointer;padding:0;align-self:flex-start}
+.ficha{font-size:13px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;background:var(--paper);border-radius:8px;padding:10px 12px;margin:0}
+.ficha dt{color:var(--muted)}
+.ficha dd{margin:0;overflow-wrap:anywhere}
+.badge{font:700 10.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 8px;background:var(--paper-2);color:var(--muted)}
+.badge.rev{background:var(--warn-bg);color:var(--warn)}
+details.others{margin-top:24px;border:1px solid var(--line);border-radius:12px;padding:0 16px;background:var(--paper)}
+details.others>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 0;font-size:17px;font-weight:700;color:var(--head)}
+details.others>summary::-webkit-details-marker{display:none}
+details.others>summary::after{content:"Ver";margin-left:auto;font:600 13.5px var(--f-body);color:var(--blue)}
+details.others[open]>summary::after{content:"Ocultar"}
+details.others>summary small{font-size:12px;font-weight:600;color:var(--muted);background:var(--paper-2);border-radius:999px;padding:1px 8px}
+.rows{display:flex;flex-direction:column;padding-bottom:8px}
+.row{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 2px;border-top:1px solid var(--line);font-size:14px}
+.row .glyph{width:24px;height:24px}
+.row a{color:var(--head);text-decoration:none;font-weight:600}
+.row a:hover{text-decoration:underline}
+.row .ri{display:block;font-size:12.5px;color:var(--muted)}
+.row .rt{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+@media (max-width:620px){.row{grid-template-columns:26px minmax(0,1fr)}.row .rt{grid-column:2;justify-content:flex-start}}
+.empty{padding:40px 20px;text-align:center;color:var(--muted);border:1px dashed var(--hair);border-radius:var(--r);font-size:17px}
+.showall{margin:18px auto 0;display:block;background:var(--surface);border:1px solid var(--navy);color:var(--head);border-radius:999px;padding:9px 20px;font:600 14px var(--f-body);cursor:pointer}
+
+/* cobertura */
+.legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:4px 12px 4px 5px;font-size:13px;font-weight:600}
+.pill b{font-size:15px;min-width:26px;height:26px;border-radius:999px;display:inline-grid;place-items:center;background:var(--surface);font-variant-numeric:tabular-nums lining-nums}
+.s-ok{background:var(--ok-bg);color:var(--ok)} .s-warn{background:var(--warn-bg);color:var(--warn)} .s-ind{background:var(--ind-bg);color:var(--ind)} .s-bad{background:var(--bad-bg);color:var(--bad)} .s-conc{background:var(--gold-soft);color:var(--gold)}
+.areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:22px}
+.area{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 10px}
+.area header{display:grid;grid-template-columns:58px minmax(0,1fr);gap:12px;align-items:center;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.area .gc{width:58px;height:58px;border-radius:50%;border:1.4px solid var(--navy);display:grid;place-items:center;background:var(--paper)}
+.area .glyph{width:36px;height:36px}
+.area h3{font-size:18px;font-weight:700;line-height:1.15}
+.area h3 small{display:block;font-size:12.5px;color:var(--muted);font-weight:500;margin-top:3px}
+.tiles{display:flex;flex-direction:column}
+.tile{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:10px;align-items:center;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 4px;cursor:pointer;color:var(--ink);font:500 14px var(--f-body);transition:background .15s,padding .2s;border-radius:6px}
+.tile:last-child{border-bottom:0}
+.tile:hover{background:var(--mist);padding-left:10px}
+.tile .dot{width:10px;height:10px;border-radius:50%}
+.tile.ok .dot{background:var(--ok)} .tile.warn .dot{background:var(--warn)} .tile.ind .dot{background:var(--ind)} .tile.bad .dot{background:transparent;border:2px solid var(--bad)}
+.tile.bad .tn{color:var(--bad)}
+.tile .tn{min-width:0}
+.tile .tn small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+.tile .tc{font-weight:700;font-size:20px;color:var(--head);font-variant-numeric:tabular-nums lining-nums;display:flex;align-items:center;gap:6px}
+.tile .tc .conc{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.enf-title{font-size:24px;font-weight:700;margin-top:44px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.enf-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:0 22px;margin-top:8px}
+.note{color:var(--muted);font-size:14px;margin-top:22px;max-width:90ch}
+
+/* ODS */
+.ods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,168px),1fr));gap:10px}
+.odst{position:relative;border:0;border-radius:10px;padding:12px 12px 11px;text-align:left;cursor:pointer;min-height:156px;display:flex;flex-direction:column;gap:5px;font-family:var(--f-body);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.odst:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.18)}
+.odst .on{font-weight:700;font-size:40px;line-height:.9}
+.odst .ot{font-size:13px;font-weight:700;line-height:1.2}
+.odst .oc{margin-top:auto;font-size:12.5px}
+.odst .oc b{font-size:20px}
+.odst .stack{display:flex;height:5px;gap:2px}
+.odst .stack i{display:block;height:100%;border-radius:2px}
+.odst .flag{position:absolute;top:10px;right:10px;font-size:11px;font-weight:700;background:rgba(0,0,0,.3);color:#fff;padding:2px 8px;border-radius:999px}
+
+/* metodología */
+.meto{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:28px 36px}
+.meto h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.meto p{margin:0;color:var(--muted);font-size:15px;max-width:60ch}
+.scale{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.scale div{display:grid;grid-template-columns:170px minmax(0,1fr);gap:10px;font-size:14px;align-items:center}
+footer{background:var(--navy);color:var(--paper);font-size:14px}
+footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="sprite"><filter id="wcf" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="70"/><feGaussianBlur stdDeviation="2"/></filter><filter id="paint" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" seed="5" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.25" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in" result="t"/><feDisplacementMap in="t" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/></filter><filter id="wcl" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></defs></svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="var(--navy)" stroke-width="1.4"/><path d="M9 19L14 9L21 16Z" fill="none" stroke="var(--blue)" stroke-width="1.2"/><circle cx="9" cy="19" r="2.3" fill="var(--navy)"/><circle cx="14" cy="9" r="2.3" fill="var(--orange)"/><circle cx="21" cy="16" r="2.3" fill="var(--blue)"/></svg>Atlas <i>de Observatorios</i></a>
+    <span class="tag-proto">Prototipo</span>
+    <nav class="nav" aria-label="Secciones"><a href="#inicio">Buscar</a><a href="#cobertura">Cobertura</a><a href="#metodologia">Metodología</a><button class="navbtn" data-act="browse">Ver inventario completo</button></nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wc wc1" aria-hidden="true"></div><div class="wc wc2" aria-hidden="true"></div><div class="wc wc3" aria-hidden="true"></div>
+  <div class="wrap hgrid">
+    <div style="min-width:0;position:relative">
+      <div class="eyebrow">Atlas de datos de Uruguay · corte <span id="corte"></span></div>
+      <h1 id="h1"><span class="w" style="--d:0">Observatorios,</span> <span class="w" style="--d:1">monitores</span> <span class="w" style="--d:2">y</span> <span class="w" style="--d:3">portales</span> <span class="w" style="--d:4">de</span> <span class="w" style="--d:5">datos</span> <span class="w" style="--d:6">de</span> <span class="w" style="--d:7">Uruguay,</span> <em class="w" style="--d:8">en</em> <em class="w" style="--d:9">un</em> <em class="w" style="--d:10">solo</em> <em class="w" style="--d:11">lugar.</em></h1>
+      <p class="lead">El Atlas reúne en un solo sitio los observatorios, monitores y portales de datos del país, organizados por tema. Buscá un tema y encontrá qué instituciones publican información, cuáles son las fuentes de referencia, qué nivel de análisis ofrecen y en qué temas faltan datos.</p>
+      <form class="search" id="heroForm" role="search">
+        <label for="heroQ" hidden>Buscar un tema</label>
+        <input id="heroQ" type="search" placeholder="Buscá un tema: género, PBI, empleo, CTI…" autocomplete="off">
+        <button type="submit"><svg width="18" height="18" viewBox="0 0 120 120" aria-hidden="true"><circle cx="52" cy="52" r="30" fill="none" stroke="currentColor" stroke-width="12"/><path d="M74 74L104 104" stroke="currentColor" stroke-width="12" stroke-linecap="round"/></svg>Buscar</button>
+      </form>
+      <div class="chips-try"><span>por ejemplo</span>
+        <button data-q="género">género</button><button data-q="pbi">PBI</button><button data-q="empleo">empleo</button><button data-q="cti">CTI</button><button data-q="exportaciones">exportaciones</button><button data-q="género universidad">género en universidad</button><button data-q="agua">agua</button>
+      </div>
+      
+      <ol class="howto"><li><b>Buscá un tema</b> o tocá uno en el mapa de cobertura.</li><li><b>Mirá las referencias principales</b>, ordenadas por prioridad.</li><li><b>Revisá los vacíos</b> en el mapa de cobertura.</li></ol>
+    </div>
+    <div class="art" aria-label="Mapa de Uruguay en puntos con la red de datos, una lupa que revela la concentración de recursos y las ocho áreas temáticas"><svg id="artSvg" viewBox="0 0 600 560"></svg><div class="art-hint"><svg width="16" height="16" viewBox="0 0 120 120" aria-hidden="true"><circle cx="52" cy="52" r="30" fill="none" stroke="currentColor" stroke-width="10"/><path d="M74 74L104 104" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>Pasá el cursor: capa de datos</div></div>
+  </div>
+  <div class="wrap"><div class="kpis">
+    <div class="kpi"><span class="ci" data-ico="DB"></span><div><b class="cu" data-k="nac">0</b><span>recursos nacionales y departamentales</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="GL"></span><div><b class="cu" data-k="int">0</b><span>referencias internacionales para comparar</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="A8"></span><div><b class="cu" data-k="inst">0</b><span>instituciones que publican datos</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="MG"></span><div><b class="cu" data-k="gap">0</b><span>temas sin cobertura nacional</span></div></div>
+  </div></div>
+</section>
+
+<section class="block band" id="resultados" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Resultados</div><h2 id="resTitle">Resultados</h2>
+      <p>Primero aparecen las referencias principales del tema, en orden de prioridad. El resto de los recursos queda plegado más abajo.</p></div>
+      <button class="closebtn" data-act="reset">Cerrar resultados ✕</button>
+    </div>
+    <div class="layout">
+      <aside class="filters" id="filters" aria-label="Filtros"></aside>
+      <div style="min-width:0">
+        <form class="qbar" id="qForm" role="search"><div class="search"><label for="q" hidden>Buscar</label><input id="q" type="search" placeholder="Cambiar búsqueda: tema, institución o palabra clave" autocomplete="off"><button type="submit">Buscar</button></div></form>
+        <div id="interp"></div>
+        <div class="count" id="count" aria-live="polite"></div>
+        <div id="results"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="cobertura">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Análisis del ecosistema</div><h2>Qué temas están cubiertos <em>y dónde hay vacíos</em></h2>
+      <p>Los temas están agrupados en ocho áreas. El número indica cuántos recursos nacionales tienen ese tema como principal, y el color, su estado de cobertura. Tocá un tema para ver sus referencias.</p></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="areas" id="areas"></div>
+    <h3 class="enf-title">Enfoques transversales</h3>
+    <div class="enf-row" id="enfRow"></div>
+    <p class="note">Con análisis: al menos un recurso nacional produce informes interpretativos (nivel 4). Sin análisis: hay recursos con el tema como principal y ninguno de nivel 4. Indirecta: el tema solo aparece como secundario. Sin cobertura: ningún recurso nacional relevado. El punto naranja marca temas con cinco o más recursos principales, donde conviene revisar superposiciones.</p>
+  </div>
+</section>
+
+<section class="block band" id="metodologia">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Cómo se construye</div><h2>Metodología</h2></div></div>
+    <div class="meto">
+      <div><h3>Taxonomía en facetas</h3><p>Cada recurso tiene un tema principal, temas secundarios y enfoques transversales. Los 53 temas se agrupan en 8 áreas. La taxonomía incluye temas de referencia sin recursos para que los vacíos queden a la vista.</p></div>
+      <div><h3>Regla de enfoque explícito</h3><p id="regla"></p></div>
+      <div><h3>Nivel de análisis</h3><div class="scale" id="scale"></div></div>
+      <div><h3>Vigencia</h3><p>El período de datos se registra solo cuando pudo comprobarse en la fuente. Un recurso sin período comprobado no está necesariamente desactualizado. Hoy <b id="vigPct"></b> de los recursos nacionales tienen período comprobado.</p></div>
+      <div><h3>Referencias internacionales</h3><p>Plataformas de organismos y redes internacionales con datos comparables de Uruguay, como el Innovation Capabilities Navigator de la OMPI, el Global Innovation Index o RICYT. Se cuentan aparte para no inflar la cobertura nacional.</p></div>
+      <div><h3>Datos crudos</h3><p>Cada búsqueda ofrece un enlace al Catálogo Nacional de Datos Abiertos de AGESIC con el mismo término, como capa complementaria para procesamiento propio.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>Atlas de Observatorios del Uruguay · observatorios, monitores y portales de datos del país, organizados por tema · prototipo</span>
+  <span>Relevamiento web 02/10/2026, ampliado el <span id="corte2"></span>. Clasificación provisoria.</span>
+</div></footer>
+
+<script>
+window.__DATA__ = __DATA_JSON__;
+</script>
+<script>
+(function(){
+const D = window.__DATA__;
+const R = D.recursos, T = D.temas, E = D.enfoques, A = D.areas, O = D.ods, N = D.niveles;
+const ODSC = {1:"#E5243B",2:"#DDA63A",3:"#4C9F38",4:"#C5192D",5:"#FF3A21",6:"#26BDE2",7:"#FCC30B",8:"#A21942",9:"#FD6925",10:"#DD1367",11:"#FD9D24",12:"#BF8B2E",13:"#3F7E44",14:"#0A97D9",15:"#56C02B",16:"#00689D",17:"#19486A"};
+const ODSTXT = {2:"#2b1d00",6:"#06303a",7:"#3a2a00",11:"#2b1600",12:"#2b1d00",15:"#0f2a05"};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").trim();
+const isInt = r => r.ambito === "Internacional";
+const fmtDate = s => { if(!s) return ""; const p = s.split("-"); return p.length===3 ? `${p[2]}/${p[1]}/${p[0]}` : s; };
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+$("#corte").textContent = fmtDate(D.corte); $("#corte2").textContent = fmtDate(D.corte);
+$("#regla").textContent = D.regla;
+const AK = Object.keys(A);                       // A1..A8
+const areaKey = name => AK.find(k => A[k] === name);
+const SHORT = {A1:"Economía",A2:"Trabajo y protección",A3:"Salud y población",A4:"Educación y cultura",A5:"Ciencia y tecnología",A6:"Ambiente y energía",A7:"Territorio",A8:"Estado y derechos"};
+
+/* ---------- íconos temáticos (línea, caja 120×120) ---------- */
+const P = d => `<path class="ln draw" pathLength="1" d="${d}"/>`;
+const OBJ = {
+ A1: () => P("M18 100H102") + P("M30 98V70H44V98M53 98V54H67V98M76 98V38H90V98") + P("M26 60L58 36L72 44L98 20M86 20H98V32"),
+ A2: () => `<rect class="ln draw" pathLength="1" x="20" y="42" width="80" height="54" rx="9"/>` + P("M46 42V34C46 30 49 27 53 27H67C71 27 74 30 74 34V42") + P("M20 66H100") + `<rect class="ln draw" pathLength="1" x="53" y="61" width="14" height="10" rx="2"/>`,
+ A3: () => P("M60 98C24 74 18 46 36 34C47 27 56 32 60 41C64 32 73 27 84 34C102 46 96 74 60 98Z") + P("M60 52V74M49 63H71"),
+ A4: () => P("M12 50L60 28L108 50L60 72Z") + P("M32 60V82C32 89 45 96 60 96C75 96 88 89 88 82V60") + P("M102 53V80") + `<circle class="ln draw" pathLength="1" cx="102" cy="84" r="4"/>`,
+ A5: () => P("M52 14L68 21L54 56L38 49Z") + P("M45 52L40 64M60 30L76 37") + P("M24 100H96M40 84H78M58 84V100") + P("M74 100C98 86 98 54 70 44") + `<circle class="ln draw" pathLength="1" cx="40" cy="70" r="6"/>`,
+ A6: () => P("M60 100V54") + P("M60 72C60 50 44 38 22 38C22 60 38 72 60 72Z") + P("M60 60C60 40 76 26 98 26C98 48 82 60 60 60Z") + P("M34 100H86"),
+ A7: () => P("M14 38L42 28L78 40L106 30V86L78 96L42 84L14 94Z") + P("M42 28V84M78 40V96") + P("M60 72C60 72 48 60 48 52C48 45 53 40 60 40C67 40 72 45 72 52C72 60 60 72 60 72Z") + `<circle class="ln draw" pathLength="1" cx="60" cy="52" r="4"/>`,
+ A8: () => P("M16 44L60 20L104 44Z") + P("M22 44H98") + P("M32 50V86M50 50V86M70 50V86M88 50V86") + P("M20 92H100M14 100H106"),
+ DB: () => `<ellipse class="ln" cx="60" cy="28" rx="32" ry="11"/>` + P("M28 28V90C28 96 42 101 60 101C78 101 92 96 92 90V28") + P("M28 49C28 55 42 60 60 60C78 60 92 55 92 49M28 70C28 76 42 81 60 81C78 81 92 76 92 70"),
+ GL: () => `<circle class="ln" cx="60" cy="60" r="42"/><ellipse class="ln" cx="60" cy="60" rx="18" ry="42"/>` + P("M18 60H102M24 40H96M24 80H96"),
+ MG: () => `<circle class="ln" cx="52" cy="52" r="28"/>` + P("M72 72L100 100") + P("M40 52H64M52 40V64"),
+};
+const sprite = $("#sprite");
+sprite.insertAdjacentHTML("beforeend", Object.keys(OBJ).map(k=>`<symbol id="o-${k}" viewBox="0 0 120 120">${OBJ[k]()}</symbol>`).join(""));
+const glyph = (k, cls="glyph") => `<svg class="${cls}" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--${k.toLowerCase()})">${OBJ[k]()}</svg>`;
+const glyphUse = (k, cls="glyph") => `<svg class="${cls}" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--${k.toLowerCase()})"><use href="#o-${k}"/></svg>`;
+document.querySelectorAll("[data-ico]").forEach(el => { el.innerHTML = `<svg viewBox="0 0 120 120" aria-hidden="true">${OBJ[el.dataset.ico]()}</svg>`; });
+
+/* ---------- cobertura ---------- */
+const cov = {};
+for (const code in T) {
+  const nac = R.filter(r => !isInt(r) && (r.tema===code || r.temas_sec.includes(code)));
+  const pri = nac.filter(r => r.tema===code), an = nac.filter(r => r.nivel===4);
+  const it = R.filter(r => isInt(r) && (r.tema===code || r.temas_sec.includes(code)));
+  const st = nac.length===0 ? "bad" : pri.length===0 ? "ind" : an.length===0 ? "warn" : "ok";
+  cov[code] = {nac:nac.length, pri:pri.length, an:an.length, int:it.length, st, conc: pri.length>=5};
+}
+const ST = {ok:"Cobertura con análisis", warn:"Cobertura sin análisis", ind:"Cobertura indirecta", bad:"Sin cobertura nacional"};
+const SC = {ok:"s-ok", warn:"s-warn", ind:"s-ind", bad:"s-bad"};
+const areaStat = {};
+AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Object.keys(T).filter(c=>T[c].area===k);
+  areaStat[k] = {n:rs.length, an:rs.filter(r=>r.nivel===4).length, int:R.filter(r=>isInt(r)&&r.area===A[k]).length, gaps:ts.filter(c=>cov[c].st==="bad").length, temas:ts.length}; });
+
+/* ---------- portada: mapa de Uruguay en matriz de puntos con red de datos ---------- */
+(function art(){
+  const svg = $("#artSvg");
+  // contorno aproximado de Uruguay (lon, lat)
+  const UY = [[-57.61,-30.18],[-57.1,-30.11],[-56.83,-30.1],[-56.4,-30.4],[-56.0,-30.8],[-55.6,-30.85],[-55.2,-31.27],[-54.6,-31.48],[-54.1,-31.9],[-53.7,-32.1],[-53.37,-32.56],[-53.1,-32.9],[-53.4,-33.16],[-53.52,-33.69],[-53.75,-34.05],[-54.2,-34.55],[-54.6,-34.82],[-54.95,-34.97],[-55.5,-34.8],[-56.2,-34.92],[-56.8,-34.62],[-57.4,-34.45],[-57.85,-34.47],[-58.3,-34.0],[-58.43,-33.55],[-58.35,-33.08],[-58.15,-32.6],[-58.1,-32.2],[-58.0,-31.6],[-57.85,-31.1],[-57.7,-30.6]];
+  const lon0=-58.6, lon1=-52.95, lat0=-29.95, lat1=-35.15, W=300, H=318, X0=150, Y0=112;
+  const pr = ([lo,la]) => [X0 + (lo-lon0)/(lon1-lon0)*W, Y0 + (lat0-la)/(lat0-lat1)*H];
+  const poly = UY.map(pr);
+  const inside = (x,y) => { let c=false; for(let i=0,j=poly.length-1;i<poly.length;j=i++){ const [xi,yi]=poly[i],[xj,yj]=poly[j]; if(((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi)+xi)) c=!c; } return c; };
+  let dots = ""; const step = 8.4;
+  for (let y=Y0; y<=Y0+H; y+=step) for (let x=X0; x<=X0+W; x+=step) if (inside(x,y)) dots += `<circle class="mapdot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" style="--x:${(x-X0+ (y-Y0)*.4).toFixed(0)}"/>`;
+  const C = {Montevideo:[-56.19,-34.88],Salto:[-57.96,-31.39],Paysandú:[-58.06,-32.32],Rivera:[-55.55,-30.92],Artigas:[-56.47,-30.42],Tacuarembó:[-55.98,-31.72],Melo:[-54.19,-32.37],Durazno:[-56.52,-33.38],Maldonado:[-54.95,-34.88],Colonia:[-57.82,-34.45],"Treinta y Tres":[-54.38,-33.23],Mercedes:[-58.0,-33.25],Florida:[-56.21,-34.1],Rocha:[-54.33,-34.48],Minas:[-55.24,-34.37],"San José":[-56.71,-34.34],Trinidad:[-56.9,-33.52],"Fray Bentos":[-58.28,-33.12]};
+  const nodes = Object.entries(C).map(([n,c],k)=>({n, p:pr(c), k}));
+  const mvd = nodes[0];
+  const edges = [];
+  nodes.forEach(a => { const near = nodes.filter(b=>b!==a).sort((b,c)=>Math.hypot(b.p[0]-a.p[0],b.p[1]-a.p[1])-Math.hypot(c.p[0]-a.p[0],c.p[1]-a.p[1])).slice(0,2);
+    near.forEach(b => { if (!edges.some(e=>(e[0]===a&&e[1]===b)||(e[0]===b&&e[1]===a))) edges.push([a,b]); }); });
+  [nodes[1],nodes[3],nodes[6],nodes[7]].forEach(b => edges.push([mvd,b]));
+  let eh = "", pk = "";
+  edges.forEach(([a,b],i) => { const d=`M${a.p[0].toFixed(1)} ${a.p[1].toFixed(1)}L${b.p[0].toFixed(1)} ${b.p[1].toFixed(1)}`; eh += `<path class="edge" id="e${i}" d="${d}"/>`;
+    if (!reduce && i%2===0) { const bg=(1.2+(i%9)*.33).toFixed(2); pk += `<circle class="packet" r="2.6" opacity="0"><set attributeName="opacity" to="1" begin="${bg}s"/><animateMotion dur="${(3+ (i%5)*.7).toFixed(1)}s" begin="${bg}s" repeatCount="indefinite" path="${d}"/></circle>`; } });
+  const nh = nodes.map((n,k)=>`<circle class="node${k%3===1?" b":""}" cx="${n.p[0].toFixed(1)}" cy="${n.p[1].toFixed(1)}" r="${n===mvd?6:4.2}" style="--k:${k}"><title>${n.n}</title></circle>`).join("");
+  // íconos de área alrededor del mapa
+  const LBL = {A1:"Economía",A2:"Trabajo",A3:"Salud",A4:"Educación",A5:"CTI",A6:"Ambiente",A7:"Territorio",A8:"Estado"};
+  let ic = "", sp = "";
+  AK.forEach((k,i) => {
+    const a = i/AK.length*2*Math.PI - Math.PI/2, x = 300 + 252*Math.cos(a), y = 276 + 222*Math.sin(a), s = areaStat[k];
+    const near = nodes.slice().sort((b,c)=>Math.hypot(b.p[0]-x,b.p[1]-y)-Math.hypot(c.p[0]-x,c.p[1]-y))[0];
+    sp += `<path class="spoke" d="M${x.toFixed(1)} ${y.toFixed(1)}L${near.p[0].toFixed(1)} ${near.p[1].toFixed(1)}"/>`;
+    ic += `<g class="aicon" tabindex="0" role="button" data-area="${k}" aria-label="${esc(A[k])}: ${s.n} recursos" style="--d:${i}">
+      <g class="scl"><circle class="ring" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="33"/>
+      <svg class="ic" x="${(x-21).toFixed(1)}" y="${(y-21).toFixed(1)}" width="42" height="42" viewBox="0 0 120 120">${OBJ[k]()}</svg></g>
+      <text x="${x.toFixed(1)}" y="${(y+49).toFixed(1)}" text-anchor="middle">${LBL[k]}</text>
+      <text class="cnt" x="${x.toFixed(1)}" y="${(y+64).toFixed(1)}" text-anchor="middle">${s.n} recursos</text></g>`;
+  });
+  // capa de datos bajo la lupa: puntos coloreados por concentración, nombres y recursos departamentales
+  const DEP = {Montevideo:"Montevideo",Salto:"Salto",Rivera:"Rivera",Maldonado:"Maldonado",Canelones:"Canelones"};
+  const depCount = n => R.filter(r => !isInt(r) && (r.inst.includes(n) || (r.alcance||"").includes(n))).length;
+  const weights = nodes.map(n => ({p:n.p, w: 1 + (DEP[n.n] ? depCount(n.n) : 0) + (n===mvd ? 12 : 0)}));
+  const heat = (x,y) => weights.reduce((a,c)=>a + c.w*Math.exp(-((x-c.p[0])**2+(y-c.p[1])**2)/(2*34*34)), 0);
+  const ramp = h => h > 6 ? "var(--orange)" : h > 2.6 ? "var(--blue)" : h > 1.1 ? "var(--sky)" : "var(--mist)";
+  let ddots = "";
+  for (let y=Y0; y<=Y0+H; y+=step) for (let x=X0; x<=X0+W; x+=step) if (inside(x,y)) { const h = heat(x,y); ddots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2.2+Math.min(1.6,h*.18)).toFixed(2)}" style="fill:${ramp(h)}"/>`; }
+  const labels = nodes.map(n => { const c = DEP[n.n] ? depCount(n.n) : 0;
+    return `<g class="lab"><circle cx="${n.p[0].toFixed(1)}" cy="${n.p[1].toFixed(1)}" r="${n===mvd?6.5:4.5}" class="lnode"/><text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+4).toFixed(1)}" class="ltxt">${esc(n.n)}</text>${c?`<text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+16).toFixed(1)}" class="lcnt">${c} recursos departamentales</text>`:""}</g>`; }).join("");
+  // capa de datos de las áreas (visible bajo la lupa)
+  let dic = "";
+  AK.forEach((k,i) => { const a = i/AK.length*2*Math.PI - Math.PI/2, x = 300 + 252*Math.cos(a), y = 276 + 222*Math.sin(a), s = areaStat[k];
+    dic += `<g style="color:var(--${k.toLowerCase()})"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="40" style="fill:color-mix(in srgb,currentColor 14%,var(--paper))"/>
+      <svg x="${(x-17).toFixed(1)}" y="${(y-36).toFixed(1)}" width="34" height="34" viewBox="0 0 120 120">${OBJ[k]()}</svg>
+      <text x="${x.toFixed(1)}" y="${(y+18).toFixed(1)}" text-anchor="middle" class="dnum">${s.n}</text>
+      <text x="${x.toFixed(1)}" y="${(y+56).toFixed(1)}" text-anchor="middle" class="dsub2">${s.an} CON ANÁLISIS · ${s.gaps} VACÍO${s.gaps===1?"":"S"}</text></g>`; });
+  svg.innerHTML = `<defs><clipPath id="lensClip"><circle id="lensCirc" cx="300" cy="276" r="0"/></clipPath></defs>
+    <g>${sp}</g><g>${dots}</g><g>${eh}</g><g>${pk}</g><g>${nh}</g>${ic}
+    <g clip-path="url(#lensClip)" class="lensview"><rect width="600" height="560" class="lensbg"/><g>${eh}</g><g>${ddots}</g>${labels}${dic}</g>
+    <circle id="lensRing" cx="300" cy="276" r="0" class="lensring"/>`;
+  // lupa: revela la capa de datos bajo el cursor
+  const lc = svg.querySelector("#lensCirc"), lr = svg.querySelector("#lensRing"), RMAX = 105;
+  let lx = 300, ly = 276, tx = 300, ty = 276, rad = 0, rt = 0, raf = 0;
+  const toSvg = e => { const b = svg.getBoundingClientRect(); return [(e.clientX-b.left)/b.width*600, (e.clientY-b.top)/b.height*560]; };
+  const draw = () => { lx += (tx-lx)*(reduce?1:.25); ly += (ty-ly)*(reduce?1:.25); rad += (rt-rad)*(reduce?1:.18);
+    [lc,lr].forEach(c => { c.setAttribute("cx", lx.toFixed(1)); c.setAttribute("cy", ly.toFixed(1)); c.setAttribute("r", Math.max(0,rad).toFixed(1)); });
+    if (Math.abs(tx-lx)+Math.abs(ty-ly)+Math.abs(rt-rad) > .3) raf = requestAnimationFrame(draw); else raf = 0; };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(draw); };
+  svg.addEventListener("pointermove", e => { [tx,ty] = toSvg(e); rt = RMAX; kick(); });
+  svg.addEventListener("pointerdown", e => { [tx,ty] = toSvg(e); if (rad < 1) { lx = tx; ly = ty; } rt = RMAX; kick(); });
+  svg.addEventListener("pointerleave", () => { rt = 0; kick(); });
+  svg.querySelectorAll(".aicon").forEach(g => {
+    const go = () => { state.area = new Set([A[g.dataset.area]]); setQ(""); };
+    g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key==="Enter"||e.key===" ") { e.preventDefault(); go(); } });
+  });
+})();
+
+
+/* ---------- tarjetas de búsqueda estilo código ---------- */
+/* ---------- cifras ---------- */
+const statv = {nac: R.filter(r=>!isInt(r)).length, int: R.filter(isInt).length, inst: new Set(R.map(r=>r.inst)).size, gap: Object.values(cov).filter(c=>c.st==="bad").length};
+document.querySelectorAll(".cu").forEach(el => {
+  const v = statv[el.dataset.k]; el.textContent = v; if (reduce) return;
+  const t0 = performance.now()+400, dur = 1400;
+  const step = t => { const p = Math.max(0,Math.min(1,(t-t0)/dur)); el.textContent = Math.round(v*(1-Math.pow(1-p,4))); if(p<1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+});
+
+/* ---------- búsqueda ---------- */
+const STOP = new Set(["de","del","la","las","el","los","en","y","o","a","para","con","sobre","por","un","una","datos","dato","uruguay","observatorio","observatorios"]);
+const conceptIndex = [];
+for (const [c,t] of Object.entries(T)) [t.nombre, ...t.sin].forEach(s => conceptIndex.push({k:"t", code:c, s:norm(s)}));
+for (const [c,e] of Object.entries(E)) [e.nombre, ...e.sin].forEach(s => conceptIndex.push({k:"e", code:c, s:norm(s)}));
+conceptIndex.sort((a,b)=>b.s.length-a.s.length);
+function resolve(q){
+  let rest = " " + norm(q).replace(/[^a-z0-9+ ]/g," ").replace(/\s+/g," ") + " ";
+  const found = [], seen = new Set();
+  for (const ci of conceptIndex) { if (ci.s.length<2) continue; const pat=" "+ci.s+" ";
+    if (rest.includes(pat)) { const key=ci.k+ci.code; if(!seen.has(key)){seen.add(key);found.push(ci);} rest = rest.replace(pat," "); } }
+  const toks = rest.trim().split(" ").filter(w => w.length>=4 && !STOP.has(w));
+  const leftover = [];
+  for (const w of toks) { const hit = conceptIndex.find(ci => ci.s.split(" ").some(p => p.startsWith(w)));
+    if (hit) { if(!seen.has(hit.k+hit.code)){ seen.add(hit.k+hit.code); found.push(hit);} } else leftover.push(w); }
+  const extra = rest.trim().split(" ").filter(w => w.length===3 && !STOP.has(w));
+  return {concepts: found, words: [...leftover, ...extra]};
+}
+const state = {q:"", area:new Set(), amb:new Set(), niv:new Set(), enf:new Set(), ods:null, vig:false, dl:false, limit:24};
+const hay = r => norm([r.nombre, r.inst, r.etiquetas, r.desc, r.tipo].join(" "));
+function run(){
+  const {concepts, words} = resolve(state.q);
+  const tC = concepts.filter(c=>c.k==="t").map(c=>c.code), eC = concepts.filter(c=>c.k==="e").map(c=>c.code);
+  let list = R.map(r => { let hits=0, score=0;
+    for (const c of tC) { if (r.tema===c) {hits++; score+=3;} else if (r.temas_sec.includes(c)) {hits++; score+=1.5;} }
+    for (const c of eC) if (r.enfoques.includes(c)) {hits++; score+=3;}
+    if (words.length) { const h=hay(r), nm=norm(r.nombre+" "+r.inst);
+      for (const w of words) { if (nm.includes(w)) {score+=2; hits+=.5;} else if (!concepts.length && h.includes(w)) {score+=1; hits+=.5;} } }
+    return {r,hits,score}; });
+  if (concepts.length || words.length) list = list.filter(x=>x.score>0);
+  const pass = r => (!state.area.size||state.area.has(r.area)) && (!state.amb.size||state.amb.has(r.ambito)) &&
+    (!state.niv.size||state.niv.has(r.nivel)) && (!state.enf.size||[...state.enf].every(e=>r.enfoques.includes(e))) &&
+    (!state.ods||r.ods===state.ods) && (!state.vig||r.periodo) && (!state.dl||r.descarga==="Sí");
+  state.pass = pass;
+  list = list.filter(({r}) => pass(r));
+  const refSet = new Set([...Object.values(T),...Object.values(E)].flatMap(x=>x.refs||[]));
+  list.sort((a,b)=>(b.hits-a.hits)||(b.score-a.score)||(refSet.has(b.r.id)-refSet.has(a.r.id))||(rankKey(a.r)-rankKey(b.r))||(b.r.nivel-a.r.nivel)||a.r.nombre.localeCompare(b.r.nombre));
+  renderInterp(concepts, words); renderResults(list, concepts); renderFilters();
+}
+function renderInterp(concepts, words){
+  const el = $("#interp");
+  $("#resTitle").innerHTML = state.q ? `Resultados para <em>«${esc(state.q)}»</em>` : (state.ods ? `Recursos del <em>ODS ${state.ods}</em>` : (state.area.size||state.enf.size ? "Recursos <em>filtrados</em>" : "Inventario <em>completo</em>"));
+  if (!concepts.length && !words.length && !state.ods) { el.innerHTML = ""; return; }
+  const term = concepts.length ? (concepts[0].k==="t" ? T[concepts[0].code].agesic : E[concepts[0].code].nombre) : state.q;
+  let h = `<div class="interp"><span class="lbl">interpretado como</span>`;
+  for (const c of concepts) h += c.k==="t" ? `<span class="concept t"><span class="mono">${c.code}</span>${esc(T[c.code].nombre)}</span>` : `<span class="concept e">Enfoque · ${esc(E[c.code].nombre)}</span>`;
+  for (const w of words) h += `<span class="concept">“${esc(w)}”</span>`;
+  if (state.ods) h += `<span class="concept" style="background:${ODSC[state.ods]};color:${ODSTXT[state.ods]||"#fff"}">ODS ${state.ods}</span><button class="more" data-act="clearods">quitar ODS</button>`;
+  if (term) h += `<a class="agesic" href="https://catalogodatos.gub.uy/dataset?q=${encodeURIComponent(term)}" target="_blank" rel="noopener">Datos crudos en el Catálogo Nacional ↗</a>`;
+  el.innerHTML = h + `</div>`;
+}
+const lvl = n => `<span class="lvl" title="Nivel ${n}: ${esc(N[n].nombre)}"><i>${[1,2,3,4].map(k=>`<b class="${k<=n?"on":""}"></b>`).join("")}</i>${esc(N[n].nombre)}</span>`;
+function card(r,i,rank){
+  const t = T[r.tema], ak = areaKey(r.area);
+  return `<article class="card${rank?" ref":""}" style="--i:${Math.min(i,18)}">
+    <div class="meta">${rank?`<span class="rank" title="Referencia principal ${rank}">${rank}</span>`:glyphUse(ak)}<span>${esc(r.id)} · ${esc(r.tipo)}</span><span class="amb">${r.contenido==="A revisar"?'<span class="badge rev">A revisar</span>':esc(r.ambito)}</span></div>
+    <h3><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.nombre)}</a></h3>
+    <div class="inst">${esc(r.inst)}</div>
+    <p class="desc">${esc(r.desc)}</p>
+    <div class="chips"><button class="chip" data-q="${esc(t.nombre)}">${esc(t.nombre)}</button>${r.temas_sec.map(c=>`<button class="chip sec" data-q="${esc(T[c].nombre)}">${esc(T[c].nombre)}</button>`).join("")}${r.enfoques.map(c=>`<button class="chip enf" data-q="${esc(E[c].nombre)}">${esc(E[c].nombre)}</button>`).join("")}</div>
+    <div class="foot">${lvl(r.nivel)}<span class="vig ${r.periodo?"ok":""}">${r.periodo?("Datos: "+esc(r.periodo)):"Período no comprobado"}</span></div>
+    <button class="more" data-ficha="${esc(r.id)}" aria-expanded="false">Ver ficha</button>
+    <dl class="ficha" id="f-${esc(r.id)}" hidden>
+      <dt>Área</dt><dd>${esc(r.area)}</dd><dt>Naturaleza</dt><dd>${esc(r.nat)}</dd><dt>Alcance</dt><dd>${esc(r.alcance)}</dd>
+      <dt>Descarga</dt><dd>${esc(r.descarga)}</dd><dt>API</dt><dd>${esc(r.api)}</dd>
+      <dt>Desagregación</dt><dd>Territorial: ${esc(r.des_terr)} · Por sexo: ${esc(r.des_sexo)}</dd>
+      ${r.pub?`<dt>Publicación</dt><dd>${esc(fmtDate(r.pub))}</dd>`:""}${r.rel?`<dt>Sistema</dt><dd>${esc(r.rel)}</dd>`:""}
+      ${r.notas?`<dt>Notas</dt><dd>${esc(r.notas)}</dd>`:""}
+      ${r.fuentes?`<dt>Fuente</dt><dd><a href="${esc(r.fuentes.split(/[\s;]/)[0])}" target="_blank" rel="noopener">verificación ↗</a></dd>`:""}
+    </dl></article>`;
+}
+function row(r){
+  const ak = areaKey(r.area);
+  return `<div class="row">${glyphUse(ak)}<div style="min-width:0"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.nombre)}</a><span class="ri">${esc(r.inst)} · ${esc(T[r.tema].nombre)}</span></div>
+    <div class="rt">${r.contenido==="A revisar"?'<span class="badge rev">A revisar</span>':""}${r.gran==="Portal general"?'<span class="badge">Portal general</span>':""}${lvl(r.nivel)}</div></div>`;
+}
+const rankKey = r => (r.contenido==="A revisar"?2:0) + (r.gran==="Portal general"?1:0);
+function renderResults(list, concepts){
+  const need = concepts.length;
+  const nac = list.filter(x=>!isInt(x.r)), int = list.filter(x=>isInt(x.r));
+  $("#count").innerHTML = `<b>${list.length}</b> recursos · ${nac.length} nacionales y departamentales · ${int.length} internacionales`;
+  if (!list.length) { $("#results").innerHTML = `<div class="empty">No hay recursos para esta búsqueda con los filtros actuales. Si el tema existe en la taxonomía y no tiene recursos, es un vacío del ecosistema.</div>`; return; }
+  let h = "", i = 0;
+  if (need) {
+    // referencias principales: lista curada del concepto (o recursos que cumplen todos los conceptos)
+    const byId = new Map(nac.map(x=>[x.r.id,x]));
+    R.forEach(r => { if (!byId.has(r.id) && !isInt(r) && state.pass(r)) byId.set(r.id, {r, hits:0, score:0}); });
+    let featured = [];
+    if (need === 1) {
+      const c = concepts[0], refs = (c.k==="t" ? T[c.code].refs : E[c.code].refs) || [];
+      featured = refs.map(id=>byId.get(id)).filter(x=>x && x.r.contenido!=="A revisar");
+    } else {
+      const refs = new Set(concepts.flatMap(c => (c.k==="t" ? T[c.code].refs : E[c.code].refs) || []));
+      featured = nac.filter(x=>x.hits>=need).sort((a,b)=>(refs.has(b.r.id)-refs.has(a.r.id))||(rankKey(a.r)-rankKey(b.r))).slice(0,5);
+    }
+    if (!featured.length) featured = nac.filter(x=>x.r.contenido!=="A revisar").sort((a,b)=>(b.hits-a.hits)||(rankKey(a.r)-rankKey(b.r))||(b.r.nivel-a.r.nivel)).slice(0,3);
+    const fids = new Set(featured.map(x=>x.r.id));
+    const rest = nac.filter(x=>!fids.has(x.r.id)).sort((a,b)=>(b.hits-a.hits)||(rankKey(a.r)-rankKey(b.r))||(b.score-a.score));
+    h += `<div class="group-title">Referencias principales <small>${featured.length}</small></div><div class="results">${featured.map((x,k)=>card(x.r,i++,k+1)).join("")}</div>`;
+    if (rest.length) h += `<details class="others"><summary>Otros recursos con información sobre el tema <small>${rest.length}</small></summary><div class="rows">${rest.map(x=>row(x.r)).join("")}</div></details>`;
+    if (int.length) h += `<details class="others"><summary>Comparación internacional <small>${int.length}</small></summary><div class="rows">${int.map(x=>row(x.r)).join("")}</div></details>`;
+  } else {
+    const shown = nac.slice(0, state.limit);
+    h += `<div class="group-title">Uruguay <small>${nac.length}</small></div><div class="results">${shown.map(x=>card(x.r,i++)).join("")}</div>`;
+    if (nac.length > state.limit) h += `<button class="showall" data-act="more">Mostrar ${Math.min(24, nac.length-state.limit)} más · quedan ${nac.length-state.limit}</button>`;
+    if (int.length) h += `<details class="others"><summary>Comparación internacional <small>${int.length}</small></summary><div class="rows">${int.map(x=>row(x.r)).join("")}</div></details>`;
+  }
+  $("#results").innerHTML = h;
+}
+const fgroup = (id, title, items, set, open) => `<details ${open?"open":""}><summary>${title}</summary><div class="fopts">${items.map(([v,l,n,g])=>`<button class="fbtn" data-f="${id}" data-v="${esc(v)}" aria-pressed="${set.has(v)}">${g||""}${esc(l)}<span class="n">${n}</span></button>`).join("")}</div></details>`;
+function renderFilters(){
+  const cnt = fn => R.filter(fn).length;
+  $("#filters").innerHTML =
+    fgroup("area","Área", AK.map(k=>[A[k], SHORT[k], cnt(r=>r.area===A[k]), glyphUse(k)]), state.area, true) +
+    fgroup("amb","Ámbito", ["Nacional","Departamental","Internacional"].map(a=>[a,a,cnt(r=>r.ambito===a)]), state.amb, true) +
+    fgroup("niv","Nivel de análisis", [1,2,3,4].map(n=>[n,`${n} · ${N[n].nombre}`,cnt(r=>r.nivel===n)]), state.niv, false) +
+    fgroup("enf","Enfoque transversal", Object.entries(E).map(([c,e])=>[c,e.nombre,cnt(r=>r.enfoques.includes(c))]), state.enf, false) +
+    `<div><label class="check"><input type="checkbox" id="fvig" ${state.vig?"checked":""}> Solo con período comprobado</label>
+     <label class="check"><input type="checkbox" id="fdl" ${state.dl?"checked":""}> Solo con descarga confirmada</label></div>
+     <button class="reset" data-act="reset">Limpiar filtros y búsqueda</button>`;
+}
+const showRes = () => { const sec = document.getElementById("resultados"); sec.hidden = false; sec.scrollIntoView({behavior: reduce?"auto":"smooth", block:"start"}); };
+const setQ = (q, scroll=true) => { state.q=q; state.limit=24; state.browse = true; $("#q").value=q; $("#heroQ").value=q; run(); if (scroll) showRes(); };
+document.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.q !== undefined) { setQ(b.dataset.q); return; }
+  if (b.dataset.f) { const k=b.dataset.f, v = k==="niv" ? +b.dataset.v : b.dataset.v; const s=state[k]; s.has(v)?s.delete(v):s.add(v); state.limit=24; run(); return; }
+  if (b.dataset.ficha) { const d=document.getElementById("f-"+b.dataset.ficha); d.hidden=!d.hidden; b.textContent=d.hidden?"Ver ficha":"Ocultar ficha"; b.setAttribute("aria-expanded",String(!d.hidden)); return; }
+  if (b.dataset.tema) { setQ(T[b.dataset.tema].nombre); return; }
+  if (b.dataset.enf) { state.enf=new Set([b.dataset.enf]); setQ(""); return; }
+  if (b.dataset.ods) { state.ods=+b.dataset.ods; setQ(""); return; }
+  const act = b.dataset.act;
+  if (act==="more") { state.limit+=24; run(); }
+  if (act==="clearods") { state.ods=null; run(); }
+  if (act==="reset") { Object.assign(state,{area:new Set(),amb:new Set(),niv:new Set(),enf:new Set(),ods:null,vig:false,dl:false}); setQ("",false); state.browse=false; document.getElementById("resultados").hidden = true; document.getElementById("inicio").scrollIntoView({behavior: reduce?"auto":"smooth"}); }
+  if (act==="browse") { setQ(""); }
+});
+document.addEventListener("change", e => { if (e.target.id==="fvig"){state.vig=e.target.checked;run();} if (e.target.id==="fdl"){state.dl=e.target.checked;run();} });
+$("#qForm").addEventListener("submit", e => { e.preventDefault(); setQ($("#q").value,false); });
+$("#heroForm").addEventListener("submit", e => { e.preventDefault(); setQ($("#heroQ").value); });
+let tmr; $("#q").addEventListener("input", e => { clearTimeout(tmr); tmr=setTimeout(()=>{state.q=e.target.value; state.limit=24; run();},180); });
+
+/* ---------- mapa de cobertura ---------- */
+const stCount={ok:0,warn:0,ind:0,bad:0}; let conc=0; Object.values(cov).forEach(c=>{stCount[c.st]++; if(c.conc) conc++;});
+$("#legend").innerHTML = Object.keys(ST).map(k=>`<span class="pill ${SC[k]}"><b>${stCount[k]}</b>${ST[k]}</span>`).join("") + `<span class="pill s-conc"><b>${conc}</b>Alta concentración</span>`;
+$("#areas").innerHTML = AK.map(k => {
+  const ts = Object.entries(T).filter(([c,t])=>t.area===k), s = areaStat[k];
+  return `<div class="area"><header><span class="gc">${glyph(k)}</span><h3>${esc(A[k])}<small>${s.n} recursos · ${s.temas} temas${s.gaps?` · ${s.gaps} sin cobertura`:""}</small></h3></header><div class="tiles">${ts.map(([c,t])=>{const v=cov[c];
+    return `<button class="tile ${v.st}" data-tema="${c}" title="${esc(ST[v.st])}"><span class="dot"></span><span class="tn">${esc(t.nombre)}<small>${v.st==="bad" ? (v.int? `Sin recursos nacionales · ${v.int} internacionales`:"Sin recursos relevados") : `${v.nac} con mención · ${v.an} con análisis${v.int?` · ${v.int} int.`:""}`}</small></span><span class="tc">${v.conc?'<i class="conc" title="Alta concentración"></i>':""}${v.pri}</span></button>`;}).join("")}</div></div>`;
+}).join("");
+$("#enfRow").innerHTML = Object.entries(E).map(([c,e])=>{ const n=R.filter(r=>!isInt(r)&&r.enfoques.includes(c)).length, an=R.filter(r=>!isInt(r)&&r.enfoques.includes(c)&&r.nivel===4).length; const st=n===0?"bad":an===0?"warn":"ok";
+  return `<button class="tile ${st}" data-enf="${c}"><span class="dot"></span><span class="tn">${esc(e.nombre)}<small>${n===0?"Sin recursos explícitos":an+" con análisis"}</small></span><span class="tc">${n}</span></button>`; }).join("");
+
+/* ---------- metodología ---------- */
+$("#scale").innerHTML = [1,2,3,4].map(n=>`<div>${lvl(n)}<span style="color:var(--muted)">${esc(N[n].def)}</span></div>`).join("");
+const nacR = R.filter(r=>!isInt(r)); $("#vigPct").textContent = Math.round(100*nacR.filter(r=>r.periodo).length/nacR.length)+"%";
+document.querySelectorAll(".chips-try button").forEach(b=>b.addEventListener("click",()=>setQ(b.dataset.q)));
+run();
+})();
+</script>
