@@ -1,5 +1,5 @@
 {
- "fecha": "2026-10-08",
+ "fecha": "2026-11-01",
  "resultados": [
   {
    "id": "UY-001",
@@ -138,8 +138,8 @@
   },
   {
    "id": "UY-030",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error [Errno -5] No address associated with hostname>"
   },
   {
    "id": "UY-031",
@@ -158,8 +158,8 @@
   },
   {
    "id": "UY-034",
-   "status": 0,
-   "error": "Remote end closed connection without response"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-035",
@@ -208,8 +208,8 @@
   },
   {
    "id": "UY-044",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-045",
@@ -218,8 +218,8 @@
   },
   {
    "id": "UY-046",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-047",
@@ -228,8 +228,8 @@
   },
   {
    "id": "UY-048",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
   },
   {
    "id": "UY-049",
@@ -238,8 +238,8 @@
   },
   {
    "id": "UY-050",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-051",
@@ -288,8 +288,8 @@
   },
   {
    "id": "UY-062",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-063",
@@ -333,8 +333,8 @@
   },
   {
    "id": "UY-075",
-   "status": 503,
-   "error": "HTTP Error 503: Service Unavailable"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-076",
@@ -343,8 +343,8 @@
   },
   {
    "id": "UY-077",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-078",
@@ -383,23 +383,23 @@
   },
   {
    "id": "UY-092",
-   "status": 200,
-   "error": ""
+   "status": 503,
+   "error": "HTTP Error 503: Service Unavailable"
   },
   {
    "id": "UY-097",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-098",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-099",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-100",
@@ -418,8 +418,8 @@
   },
   {
    "id": "UY-103",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-104",
@@ -428,8 +428,8 @@
   },
   {
    "id": "UY-105",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
   },
   {
    "id": "UY-106",
@@ -443,8 +443,8 @@
   },
   {
    "id": "UY-108",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)>"
   },
   {
    "id": "UY-109",
@@ -489,7 +489,7 @@
   {
    "id": "UY-120",
    "status": 0,
-   "error": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>"
   },
   {
    "id": "UY-121",
@@ -503,13 +503,13 @@
   },
   {
    "id": "UY-123",
-   "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "status": 403,
+   "error": "HTTP Error 403: Forbidden"
   },
   {
    "id": "UY-124",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-125",
@@ -533,8 +533,8 @@
   },
   {
    "id": "UY-131",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-132",
@@ -543,13 +543,13 @@
   },
   {
    "id": "UY-133",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-134",
-   "status": 200,
-   "error": ""
+   "status": 403,
+   "error": "HTTP Error 403: Forbidden"
   },
   {
    "id": "UY-135",
@@ -593,8 +593,8 @@
   },
   {
    "id": "UY-145",
-   "status": 0,
-   "error": "The read operation timed out"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-146",
@@ -648,8 +648,8 @@
   },
   {
    "id": "UY-156",
-   "status": 500,
-   "error": "HTTP Error 500: Internal Server Error"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-157",
@@ -663,8 +663,8 @@
   },
   {
    "id": "UY-159",
-   "status": 200,
-   "error": ""
+   "status": 403,
+   "error": "HTTP Error 403: Forbidden"
   },
   {
    "id": "UY-160",
@@ -728,8 +728,8 @@
   },
   {
    "id": "UY-172",
-   "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-173",
