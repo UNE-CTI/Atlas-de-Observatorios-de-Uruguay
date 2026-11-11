@@ -1,0 +1,34 @@
+const fs=require('fs'),path=require('path');const root=path.resolve(__dirname,'..');
+let t=fs.readFileSync(path.join(root,'site/template.html'),'utf8');
+t=t.replace(/<p class="lead">[\s\S]*?<\/p>/,'<p class="lead">Encontrá datos, informes y estadísticas sobre Uruguay. Buscá por tema o institución y accedé a las fuentes.</p>');
+t=t.replace(/<ol class="howto">[\s\S]*?<\/ol>/,'<ol class="howto"><li><b>Elegí un tema.</b></li><li><b>Conocé quién publica.</b></li><li><b>Consultá la fuente.</b></li></ol>');
+t=t.replace('>Cobertura</a>','>Explorar por tema</a>').replace('>Metodología</a>','>Acerca del sitio</a>').replace('>Ver inventario</button>','>Ver todos los recursos</button>');
+t=t.replace('data-k="gap"','data-k="temas"').replace('temas sin cobertura nacional','temas para explorar');
+t=t.replace('Primero aparecen las referencias principales del tema, en orden de prioridad. El resto de los recursos queda plegado más abajo.','Encontrá quién publica y abrí el recurso que te interesa.');
+t=t.replace(/<div><div class="eyebrow">Análisis del ecosistema<\/div>[\s\S]*?<div class="legend" id="legend"><\/div>/,'<div><div class="eyebrow">Explorá los recursos</div><h2>¿Qué tema te interesa?</h2><p>Elegí un tema para ver las fuentes disponibles.</p></div><div class="legend" id="legend" hidden></div>');
+t=t.replace(/<p class="note">Con análisis:[\s\S]*?<\/p>/,'');
+t=t.replace(/<section class="block band" id="metodologia">[\s\S]*?<\/section>/,`<section class="block band" id="metodologia"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Acerca del sitio</div><h2>Un punto de partida para encontrar datos</h2><p>Reunimos observatorios, monitores y portales para que sea más fácil encontrar información sobre Uruguay.</p></div></div><div class="meto"><div><h3>Qué podés encontrar</h3><p>Datos, estadísticas e informes de instituciones nacionales, departamentales e internacionales.</p></div><div><h3>Cómo buscar</h3><p>Escribí un tema, una institución o una palabra clave. También podés explorar las áreas y filtrar los resultados.</p></div><div><h3>De dónde viene la información</h3><p>Cada recurso enlaza a la institución que lo publica. Allí podés consultar los datos y sus actualizaciones.</p></div><div><h3>Un directorio en construcción</h3><p>La selección se amplía con nuevas fuentes. Las fechas y las opciones de descarga se indican cuando están verificadas.</p></div></div></div></section>`);
+t=t.replace('$("#corte2").textContent = fmtDate(D.corte);','').replace('$("#regla").textContent = D.regla;','');
+t=t.replace('gap: Object.values(cov).filter(c=>c.st==="bad").length','temas: Object.keys(T).filter(c=>R.some(r=>r.tema===c||r.temas_sec.includes(c))).length');
+t=t.replace('${s.an} CON ANÁLISIS · ${s.gaps} VACÍO${s.gaps===1?"":"S"}','${s.n} RECURSOS DISPONIBLES');
+t=t.replace('No hay recursos para esta búsqueda con los filtros actuales. Si el tema existe en la taxonomía y no tiene recursos, es un vacío del ecosistema.','No encontramos coincidencias. Probá otra palabra o limpiá los filtros.');
+const start=t.indexOf('/* ---------- mapa de cobertura ---------- */');const end=t.indexOf('/* ---------- metodología ---------- */',start);
+if(start<0||end<0)throw Error('No se encontró el bloque de temas');
+t=t.slice(0,start)+`/* ---------- recursos por tema ---------- */
+$("#areas").innerHTML = AK.map(k => {
+ const ts=Object.entries(T).filter(([c,v])=>v.area===k).map(([c,v])=>({c,v,items:R.filter(r=>r.tema===c||r.temas_sec.includes(c))})).filter(x=>x.items.length);
+ if(!ts.length)return "";
+ const count=R.filter(r=>r.area===A[k]).length;
+ return \`<div class="area"><header><span class="gc">\${glyph(k)}</span><h3>\${esc(A[k])}<small>\${count} recursos</small></h3></header><div class="tiles">\${ts.map(({c,v,items})=>\`<button class="tile available" data-tema="\${c}"><span class="tn">\${esc(v.nombre)}</span><span class="tc">\${items.length}</span></button>\`).join("")}</div></div>\`;
+}).join("");
+$("#enfRow").innerHTML=Object.entries(E).map(([c,e])=>({c,e,n:R.filter(r=>r.enfoques.includes(c)).length})).filter(x=>x.n).map(({c,e,n})=>\`<button class="tile available" data-enf="\${c}"><span class="tn">\${esc(e.nombre)}</span><span class="tc">\${n}</span></button>\`).join("");
+`+t.slice(end);
+t=t.replace(/\$\("#scale"\)\.innerHTML = [^\n]+\n/,'').replace(/const nacR = R.filter[^\n]+\n/,'');
+t=t.replace('una lupa que revela la concentración de recursos y las ocho áreas temáticas','las fuentes disponibles en ocho áreas temáticas');
+t=t.replace('Observatorios del Uruguay reúne fuentes públicas de información para facilitar su consulta y contribuir a decisiones basadas en evidencia. El inventario presenta distintos alcances y fechas de verificación.','Un directorio para encontrar información y datos sobre Uruguay. Un desarrollo de la UNE · U+I.');
+t=t.replace('</style>','\n.tile.available{background:#f8fafc;border-color:#dce4ef}.tile.available:hover{background:#edf2fa;border-color:#25408d}.tile.available .tc{color:#25408d}.meto p{max-width:48ch}.card .desc{line-height:1.65}.sec-head h2{max-width:24ch}\n</style>');
+fs.writeFileSync(path.join(root,'site/template.html'),t);
+const d=JSON.parse(fs.readFileSync(path.join(root,'data/atlas.json'),'utf8'));
+let body=t.replace('__DATA_JSON__',JSON.stringify(d).replaceAll('</','<\\/'));const i=body.indexOf('</style>')+8;
+fs.writeFileSync(path.join(root,'index.html'),'<!doctype html>\n<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Encontrá información y datos sobre Uruguay. Explorá temas, instituciones y fuentes.">'+body.slice(0,i)+'<style>body{margin:0}[hidden]{display:none!important}</style></head><body>'+body.slice(i)+'</body></html>');
+console.log('Directorio reformulado: textos breves y exploración de recursos disponibles.');
