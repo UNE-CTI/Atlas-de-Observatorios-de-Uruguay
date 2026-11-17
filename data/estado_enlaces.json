@@ -1,5 +1,5 @@
 {
- "fecha": "2026-10-08",
+ "fecha": "2026-11-17",
  "resultados": [
   {
    "id": "UY-001",
@@ -34,7 +34,7 @@
   {
    "id": "UY-008",
    "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>"
   },
   {
    "id": "UY-009",
@@ -44,7 +44,7 @@
   {
    "id": "UY-010",
    "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'inavi.com.uy'. (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'inavi.com.uy'. (_ssl.c:1011)>"
   },
   {
    "id": "UY-011",
@@ -104,7 +104,7 @@
   {
    "id": "UY-022",
    "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>"
   },
   {
    "id": "UY-023",
@@ -158,8 +158,8 @@
   },
   {
    "id": "UY-034",
-   "status": 0,
-   "error": "Remote end closed connection without response"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-035",
@@ -188,8 +188,8 @@
   },
   {
    "id": "UY-040",
-   "status": 200,
-   "error": ""
+   "status": 503,
+   "error": "HTTP Error 503: Service Unavailable"
   },
   {
    "id": "UY-041",
@@ -199,7 +199,7 @@
   {
    "id": "UY-042",
    "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>"
   },
   {
    "id": "UY-043",
@@ -228,8 +228,8 @@
   },
   {
    "id": "UY-048",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>"
   },
   {
    "id": "UY-049",
@@ -288,8 +288,8 @@
   },
   {
    "id": "UY-062",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error timed out>"
   },
   {
    "id": "UY-063",
@@ -333,8 +333,8 @@
   },
   {
    "id": "UY-075",
-   "status": 503,
-   "error": "HTTP Error 503: Service Unavailable"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-076",
@@ -358,8 +358,8 @@
   },
   {
    "id": "UY-080",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
   },
   {
    "id": "UY-081",
@@ -383,8 +383,8 @@
   },
   {
    "id": "UY-092",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error [Errno -2] Name or service not known>"
   },
   {
    "id": "UY-097",
@@ -428,8 +428,8 @@
   },
   {
    "id": "UY-105",
-   "status": 200,
-   "error": ""
+   "status": 0,
+   "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
   },
   {
    "id": "UY-106",
@@ -489,7 +489,7 @@
   {
    "id": "UY-120",
    "status": 0,
-   "error": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1011)>"
   },
   {
    "id": "UY-121",
@@ -503,8 +503,8 @@
   },
   {
    "id": "UY-123",
-   "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "status": 403,
+   "error": "HTTP Error 403: Forbidden"
   },
   {
    "id": "UY-124",
@@ -548,8 +548,8 @@
   },
   {
    "id": "UY-134",
-   "status": 200,
-   "error": ""
+   "status": 403,
+   "error": "HTTP Error 403: Forbidden"
   },
   {
    "id": "UY-135",
@@ -584,7 +584,7 @@
   {
    "id": "UY-143",
    "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>"
   },
   {
    "id": "UY-144",
@@ -593,8 +593,8 @@
   },
   {
    "id": "UY-145",
-   "status": 0,
-   "error": "The read operation timed out"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-146",
@@ -648,8 +648,8 @@
   },
   {
    "id": "UY-156",
-   "status": 500,
-   "error": "HTTP Error 500: Internal Server Error"
+   "status": 200,
+   "error": ""
   },
   {
    "id": "UY-157",
@@ -663,8 +663,8 @@
   },
   {
    "id": "UY-159",
-   "status": 200,
-   "error": ""
+   "status": 403,
+   "error": "HTTP Error 403: Forbidden"
   },
   {
    "id": "UY-160",
@@ -728,13 +728,28 @@
   },
   {
    "id": "UY-172",
-   "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "status": 301,
+   "error": "HTTP Error 301: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nMoved Permanently"
   },
   {
    "id": "UY-173",
    "status": 0,
-   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>"
+  },
+  {
+   "id": "UY-174",
+   "status": 200,
+   "error": ""
+  },
+  {
+   "id": "UY-175",
+   "status": 200,
+   "error": ""
+  },
+  {
+   "id": "UY-176",
+   "status": 200,
+   "error": ""
   }
  ]
 }
