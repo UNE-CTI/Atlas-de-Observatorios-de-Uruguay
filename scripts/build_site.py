@@ -11,3 +11,5 @@ i = body.index("</style>") + len("</style>")
 html = head + body[:i] + "\n<style>body{margin:0}[hidden]{display:none!important}</style>\n</head>\n<body>\n" + body[i:] + "\n</body>\n</html>\n"
 (root / "index.html").write_text(html, encoding="utf-8")
 print("index.html generado,", len(html) // 1024, "KB")
+import runpy
+runpy.run_path(str(root / "scripts" / "package_site.py"))

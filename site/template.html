@@ -1,7 +1,8 @@
-<title>Atlas de Observatorios del Uruguay</title>
+<title>Explorador de fuentes de información de Uruguay · UNE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
 /* Layout: identidad científica institucional (Source Sans 3, azul institucional con acento naranja, íconos de línea en círculos, acuarelas y red de nodos). Portada con mapa de Uruguay en matriz de puntos animado; debajo, resultados, cobertura, ODS y metodología. */
 :root{
@@ -343,27 +344,63 @@ details.others>summary small{font-size:12px;font-weight:600;color:var(--muted);b
 footer{background:var(--navy);color:var(--paper);font-size:14px}
 footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
 @media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+
+
+:root{--paper:#fff;--paper-2:#f2f5f8;--mist:#eef2f7;--navy:#25408d;--blue:#25408d;--sky:#c5d7ed;--orange:#b8560f;--head:#1a2d66;--ink:#1d2733;--line:#e1e7ee;--hair:#c5d0db;--accent:#25408d;--accent-soft:#eef2f7;--f-body:Inter,'Segoe UI',sans-serif;--f-display:Inter,'Segoe UI',sans-serif;--r:4px}
+html{scroll-behavior:smooth;scroll-padding-top:120px}.top{top:0;background:#ffffffF5}.institutional{border-bottom:1px solid var(--line);background:#f9fbfd}.institutional .wrap{min-height:38px;justify-content:space-between;flex-wrap:nowrap}.institutional img{display:block;object-fit:contain}.institutional nav{display:flex;align-items:center;gap:22px}.institutional nav a{display:flex;align-items:center;gap:6px;text-decoration:none;font-size:11px;color:var(--ink);white-space:nowrap}.institutional nav i{width:5px;height:5px;border-radius:50%}.top .localbar{min-height:70px}.brand{font-size:19px;font-weight:400;gap:5px}.brand strong{font-weight:650}.nav a{font-size:12px}.navbtn{font-size:12px;background:transparent;color:var(--head);border:1px solid var(--navy)}.hero{background:linear-gradient(115deg,#fff 25%,#eef4f9)}.hero .wrap.hgrid{padding-block:64px 40px;gap:50px}.hero h1{font-size:clamp(38px,4.6vw,66px);font-weight:400;letter-spacing:-.055em;line-height:1.04}.hero h1 strong{font-weight:650}.hero h1 em{font-family:'Source Serif 4',Georgia,serif;font-weight:400;letter-spacing:-.035em;color:var(--head)}.eyebrow{font-size:10px;font-weight:500;letter-spacing:.15em}.lead{font-size:15px;line-height:1.85;color:#526070}.wc{opacity:.16}.search{border-width:1px}.search input{font-size:14px}.search button{font-size:13px}.howto{font-size:12px}.chips-try button{font-size:12px}.kpi b{font-weight:600}.sec-head h2,.area h3{font-family:'Source Serif 4',Georgia,serif}.card{border-radius:6px;box-shadow:none}.card h3{font-family:'Source Serif 4',Georgia,serif}.skip{position:fixed;top:-100px;left:12px;z-index:100;background:white;padding:12px}.skip:focus{top:8px}.une-footer{background:#1a2d66;color:white;padding:46px 0}.une-footer img{width:310px;max-width:85%;height:auto}.une-footer p{max-width:700px;font-size:13px;line-height:1.8;color:#d9e2f1}.une-footer a{color:white}@media(max-width:1050px){.institutional nav{gap:12px}.institutional nav a{font-size:10px}}@media(max-width:820px){.institutional .wrap{align-items:flex-start;padding-block:12px;gap:18px}.institutional nav{flex-wrap:wrap;gap:8px 15px}.institutional nav a{white-space:normal}.top .localbar{padding-block:12px;gap:12px}.nav{margin-left:0}.hero .wrap.hgrid{padding-top:38px}.hero h1{font-size:48px}.art{max-width:440px}#resultados{scroll-margin-top:180px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+
+.ciencia-link{font-size:12px;text-decoration:none;color:var(--head)}.ciencia-link:hover{text-decoration:underline}
+
+/* Preserve the footer logo aspect ratio instead of stretching it across a flex row. */
+.une-footer .wrap{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:22px}.une-footer img{display:block;flex:none;align-self:flex-start;width:310px;max-width:100%;height:auto;object-fit:contain}.une-footer p{margin:0}
+
+.tile.available{background:#f8fafc;border-color:#dce4ef}.tile.available:hover{background:#edf2fa;border-color:#25408d}.tile.available .tc{color:#25408d}.meto p{max-width:48ch}.card .desc{line-height:1.65}.sec-head h2{max-width:24ch}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.filters select{width:100%;min-width:0;padding:10px;border:1px solid var(--hair);border-radius:4px;background:white;color:var(--ink);font:inherit;font-size:14px}.filters label{font-size:13px}.filters h3{font-size:16px}.resource-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:15px}.visit{font-weight:600;font-size:14px;text-decoration:none}.visit:hover{text-decoration:underline}.resource-actions .more{font-size:12px}.institution-entry{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 12px;text-align:left;background:white;border:1px solid var(--line);border-radius:4px;color:var(--head);font:inherit;cursor:pointer}.institution-entry:hover{background:var(--mist);border-color:var(--blue)}.institution-entry small{white-space:nowrap;color:var(--muted);font-size:11px}#institutionList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}#interp{font-size:13px;color:var(--muted);margin:0 0 12px}.reset:disabled{opacity:.45;cursor:default}.card h3{margin:0}.card .inst{line-height:1.5}.art{pointer-events:auto}section{scroll-margin-top:125px}@media(max-width:900px){#institutionList{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){#institutionList{grid-template-columns:1fr}.resource-actions{flex-wrap:wrap}.nav{gap:3px}.nav a{padding:6px}.hero h1{font-size:40px}}
+.institution-search{display:block;width:100%;max-width:480px;padding:12px;margin:8px 0 24px;border:1px solid var(--hair);border-radius:4px;font:inherit}
+
+.resource-block{padding-block:12px 28px;scroll-margin-top:120px}.resource-block+.resource-block{border-top:1px solid var(--line);margin-top:20px;padding-top:28px}.resource-block-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:18px}.resource-block-head h3{font-family:"Source Serif 4",Georgia,serif;font-size:25px;font-weight:600;color:var(--head)}.resource-block-head>span{font-size:12px;color:var(--muted);white-space:nowrap}.resource-block .card h3{font-size:19px}
+
+.download-site{display:inline-flex;align-items:center;gap:10px;margin:20px 0 8px;padding:12px 20px;border:1px solid var(--navy);border-radius:999px;color:var(--head);font-size:14px;font-weight:600;text-decoration:none;background:white}.download-site:hover{background:var(--navy);color:white}
+
+/* Editorial topic directory: independent text and count columns. */
+.areas{grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 32px;align-items:start}
+.area{background:transparent;border:0;border-radius:0;padding:0;min-width:0}
+.area header{display:block;position:relative;margin:0;padding:17px 0 20px;border-top:2px solid var(--head);border-bottom:0;min-height:100px}
+.area header::before{content:'';position:absolute;top:-2px;left:0;width:34px;height:2px;background:#ad633e}
+.area h3{font-size:23px;line-height:1.16;font-weight:600;max-width:19ch;text-wrap:balance}
+.tile.available{display:grid;grid-template-columns:minmax(0,1fr) 3ch;column-gap:16px;width:100%;min-height:64px;padding:14px 0;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;align-items:center;transition:color .18s,background .18s}
+.tile.available .tn{min-width:0;font-size:15px;line-height:1.4;overflow-wrap:normal;text-wrap:pretty}
+.tile.available .tc{display:block;position:static;justify-self:end;text-align:right;font:500 18px var(--f-body);line-height:1.2;font-variant-numeric:tabular-nums;color:#65748a}
+.tile.available:hover{background:#edf2f680;color:var(--head);padding:14px 0}
+.tile.available:hover .tc{color:#ad633e}
+.tile.available:focus-visible{outline:2px solid var(--head);outline-offset:4px}
+#institutionList{gap:0 28px}.institution-entry{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:17px 0}.institution-entry:hover{background:transparent;color:#ad633e}
+.resource-block .card{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;padding:22px 0}.resource-block .results{column-gap:32px}
+@media(max-width:1100px){.areas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.areas{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}}
+@media(max-width:480px){.areas{grid-template-columns:minmax(0,1fr)}.area header{min-height:0;padding-bottom:16px}.area h3{max-width:none}.tile.available{min-height:58px}}
+
+
+.area header{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}.area .gc{width:46px;height:46px;background:transparent;border:1px solid var(--line);border-radius:50%}.area .glyph{width:34px;height:34px}
+
+.brand{max-width:520px;line-height:1.25}.brand>span{display:block}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="sprite"><filter id="wcf" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="70"/><feGaussianBlur stdDeviation="2"/></filter><filter id="paint" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" seed="5" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.25" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in" result="t"/><feDisplacementMap in="t" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/></filter><filter id="wcl" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></defs></svg>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#inicio"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="var(--navy)" stroke-width="1.4"/><path d="M9 19L14 9L21 16Z" fill="none" stroke="var(--blue)" stroke-width="1.2"/><circle cx="9" cy="19" r="2.3" fill="var(--navy)"/><circle cx="14" cy="9" r="2.3" fill="var(--orange)"/><circle cx="21" cy="16" r="2.3" fill="var(--blue)"/></svg>Atlas <i>de Observatorios</i></a>
-    <span class="tag-proto">Prototipo</span>
-    <nav class="nav" aria-label="Secciones"><a href="#inicio">Buscar</a><a href="#cobertura">Cobertura</a><a href="#metodologia">Metodología</a><button class="navbtn" data-act="browse">Ver inventario completo</button></nav>
-  </div>
-</header>
-
+<a class="skip" href="#contenido">Saltar al contenido</a><header class="top"><div class="institutional"><div class="wrap"><a href="#inicio" aria-label="U+I · UNE: inicio del observatorio"><img src="https://gersnano.github.io/cienciaUruguay-pagina/marca/une-ui.png" alt="U+I · UNE" width="104" height="17"></a><a class="ciencia-link" href="https://gersnano.github.io/cienciaUruguay-pagina/#inicio">Ciencia Uruguay ↗</a></div></div><div class="wrap localbar"><a class="brand" href="#inicio"><span>Explorador de fuentes de información <strong>de Uruguay</strong></span></a><nav class="nav" aria-label="Secciones del explorador"><a href="#inicio">Inicio</a><a href="#cobertura">Temas</a><a href="#instituciones">Instituciones</a><button class="navbtn" data-act="browse">Explorar todas las fuentes</button></nav></div></header>
+<main id="contenido">
 <section class="hero" id="inicio">
   <div class="wc wc1" aria-hidden="true"></div><div class="wc wc2" aria-hidden="true"></div><div class="wc wc3" aria-hidden="true"></div>
   <div class="wrap hgrid">
     <div style="min-width:0;position:relative">
-      <div class="eyebrow">Atlas de datos de Uruguay · corte <span id="corte"></span></div>
-      <h1 id="h1"><span class="w" style="--d:0">Observatorios,</span> <span class="w" style="--d:1">monitores</span> <span class="w" style="--d:2">y</span> <span class="w" style="--d:3">portales</span> <span class="w" style="--d:4">de</span> <span class="w" style="--d:5">datos</span> <span class="w" style="--d:6">de</span> <span class="w" style="--d:7">Uruguay,</span> <em class="w" style="--d:8">en</em> <em class="w" style="--d:9">un</em> <em class="w" style="--d:10">solo</em> <em class="w" style="--d:11">lugar.</em></h1>
-      <p class="lead">El Atlas reúne en un solo sitio los observatorios, monitores y portales de datos del país, organizados por tema. Buscá un tema y encontrá qué instituciones publican información, cuáles son las fuentes de referencia, qué nivel de análisis ofrecen y en qué temas faltan datos.</p>
+      <div class="eyebrow">UNIDAD NACIONAL DE EVALUACIÓN</div>
+      <h1 id="h1">Explorá las fuentes de información <strong>de Uruguay.</strong></h1>
+      <p class="lead">Accedé a datos, estadísticas, indicadores, estudios y publicaciones de instituciones nacionales y departamentales. Identificá quién produce la información y dónde consultarla.</p>
       <form class="search" id="heroForm" role="search">
-        <label for="heroQ" hidden>Buscar un tema</label>
+        <label class="sr-only" for="heroQ">Buscar por tema o institución</label>
         <input id="heroQ" type="search" placeholder="Buscá un tema: género, PBI, empleo, CTI…" autocomplete="off">
         <button type="submit"><svg width="18" height="18" viewBox="0 0 120 120" aria-hidden="true"><circle cx="52" cy="52" r="30" fill="none" stroke="currentColor" stroke-width="12"/><path d="M74 74L104 104" stroke="currentColor" stroke-width="12" stroke-linecap="round"/></svg>Buscar</button>
       </form>
@@ -371,29 +408,29 @@ footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;justif
         <button data-q="género">género</button><button data-q="pbi">PBI</button><button data-q="empleo">empleo</button><button data-q="cti">CTI</button><button data-q="exportaciones">exportaciones</button><button data-q="género universidad">género en universidad</button><button data-q="agua">agua</button>
       </div>
       
-      <ol class="howto"><li><b>Buscá un tema</b> o tocá uno en el mapa de cobertura.</li><li><b>Mirá las referencias principales</b>, ordenadas por prioridad.</li><li><b>Revisá los vacíos</b> en el mapa de cobertura.</li></ol>
+      
     </div>
-    <div class="art" aria-label="Mapa de Uruguay en puntos con la red de datos, una lupa que revela la concentración de recursos y las ocho áreas temáticas"><svg id="artSvg" viewBox="0 0 600 560"></svg><div class="art-hint"><svg width="16" height="16" viewBox="0 0 120 120" aria-hidden="true"><circle cx="52" cy="52" r="30" fill="none" stroke="currentColor" stroke-width="10"/><path d="M74 74L104 104" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>Pasá el cursor: capa de datos</div></div>
+    <div class="art" role="group" aria-label="Mapa interactivo de Uruguay con lupa y accesos por tema"><svg id="artSvg" viewBox="0 0 600 560"></svg><div class="art-hint">Pasá el cursor para explorar con la lupa</div></div>
   </div>
   <div class="wrap"><div class="kpis">
-    <div class="kpi"><span class="ci" data-ico="DB"></span><div><b class="cu" data-k="nac">0</b><span>recursos nacionales y departamentales</span></div></div>
-    <div class="kpi"><span class="ci" data-ico="GL"></span><div><b class="cu" data-k="int">0</b><span>referencias internacionales para comparar</span></div></div>
-    <div class="kpi"><span class="ci" data-ico="A8"></span><div><b class="cu" data-k="inst">0</b><span>instituciones que publican datos</span></div></div>
-    <div class="kpi"><span class="ci" data-ico="MG"></span><div><b class="cu" data-k="gap">0</b><span>temas sin cobertura nacional</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="DB"></span><div><b class="cu" data-k="nac">0</b><span>fuentes de información relevadas a nivel nacional y departamental.</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="GL"></span><div><b class="cu" data-k="int">0</b><span>fuentes internacionales de referencia.<small style="display:block;margin-top:6px;font-size:12px;line-height:1.4;color:var(--muted)">Incluyen portales, bases de datos, índices y plataformas de comparación.</small></span></div></div>
+    <div class="kpi"><span class="ci" data-ico="A8"></span><div><b class="cu" data-k="areas">0</b><span>áreas para explorar</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="MG"></span><div><b class="cu" data-k="temas">0</b><span>temas para explorar</span></div></div>
   </div></div>
 </section>
 
 <section class="block band" id="resultados" hidden>
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">Resultados</div><h2 id="resTitle">Resultados</h2>
-      <p>Primero aparecen las referencias principales del tema, en orden de prioridad. El resto de los recursos queda plegado más abajo.</p></div>
-      <button class="closebtn" data-act="reset">Cerrar resultados ✕</button>
+      <div><div class="eyebrow">Resultados</div><h2 id="resTitle" tabindex="-1">Resultados</h2>
+      <p>Identificá quién produce la información y accedé a sus datos y publicaciones.</p></div>
+      <button class="closebtn" data-act="close">Cerrar resultados ✕</button>
     </div>
     <div class="layout">
       <aside class="filters" id="filters" aria-label="Filtros"></aside>
       <div style="min-width:0">
-        <form class="qbar" id="qForm" role="search"><div class="search"><label for="q" hidden>Buscar</label><input id="q" type="search" placeholder="Cambiar búsqueda: tema, institución o palabra clave" autocomplete="off"><button type="submit">Buscar</button></div></form>
+        
         <div id="interp"></div>
         <div class="count" id="count" aria-live="polite"></div>
         <div id="results"></div>
@@ -405,35 +442,18 @@ footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;justif
 <section class="block" id="cobertura">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">Análisis del ecosistema</div><h2>Qué temas están cubiertos <em>y dónde hay vacíos</em></h2>
-      <p>Los temas están agrupados en ocho áreas. El número indica cuántos recursos nacionales tienen ese tema como principal, y el color, su estado de cobertura. Tocá un tema para ver sus referencias.</p></div>
-      <div class="legend" id="legend"></div>
+      <div><div class="eyebrow">Explorá las fuentes de información</div><h2>¿Qué tema te interesa?</h2><p>Elegí un tema para ver las fuentes disponibles.</p></div><div class="legend" id="legend" hidden></div>
     </div>
     <div class="areas" id="areas"></div>
-    <h3 class="enf-title">Enfoques transversales</h3>
-    <div class="enf-row" id="enfRow"></div>
-    <p class="note">Con análisis: al menos un recurso nacional produce informes interpretativos (nivel 4). Sin análisis: hay recursos con el tema como principal y ninguno de nivel 4. Indirecta: el tema solo aparece como secundario. Sin cobertura: ningún recurso nacional relevado. El punto naranja marca temas con cinco o más recursos principales, donde conviene revisar superposiciones.</p>
+    
+    
   </div>
 </section>
 
-<section class="block band" id="metodologia">
-  <div class="wrap">
-    <div class="sec-head"><div><div class="eyebrow">Cómo se construye</div><h2>Metodología</h2></div></div>
-    <div class="meto">
-      <div><h3>Taxonomía en facetas</h3><p>Cada recurso tiene un tema principal, temas secundarios y enfoques transversales. Los 53 temas se agrupan en 8 áreas. La taxonomía incluye temas de referencia sin recursos para que los vacíos queden a la vista.</p></div>
-      <div><h3>Regla de enfoque explícito</h3><p id="regla"></p></div>
-      <div><h3>Nivel de análisis</h3><div class="scale" id="scale"></div></div>
-      <div><h3>Vigencia</h3><p>El período de datos se registra solo cuando pudo comprobarse en la fuente. Un recurso sin período comprobado no está necesariamente desactualizado. Hoy <b id="vigPct"></b> de los recursos nacionales tienen período comprobado.</p></div>
-      <div><h3>Referencias internacionales</h3><p>Plataformas de organismos y redes internacionales con datos comparables de Uruguay, como el Innovation Capabilities Navigator de la OMPI, el Global Innovation Index o RICYT. Se cuentan aparte para no inflar la cobertura nacional.</p></div>
-      <div><h3>Datos crudos</h3><p>Cada búsqueda ofrece un enlace al Catálogo Nacional de Datos Abiertos de AGESIC con el mismo término, como capa complementaria para procesamiento propio.</p></div>
-    </div>
-  </div>
-</section>
+<section class="block band" id="instituciones"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Quién publica</div><h2>Explorá por institución</h2><p>Seleccioná una institución para conocer la información que produce y publica. Sus unidades y programas se agrupan bajo el mismo nombre.</p></div></div><label for="institutionSearch">Buscar institución</label><input id="institutionSearch" class="institution-search" type="search" placeholder="Nombre o sigla: Udelar, INE, BCU…"><div id="institutionList"></div><button id="moreInstitutions" class="showall">Ver todas las instituciones</button></div></section>
 
-<footer><div class="wrap">
-  <span>Atlas de Observatorios del Uruguay · observatorios, monitores y portales de datos del país, organizados por tema · prototipo</span>
-  <span>Relevamiento web 02/10/2026, ampliado el <span id="corte2"></span>. Clasificación provisoria.</span>
-</div></footer>
+</main>
+<footer class="une-footer"><div class="wrap"><img src="https://gersnano.github.io/cienciaUruguay-pagina/marca/une-horizontal-blanco.png" alt="UNE · Unidad Nacional de Evaluación del Sistema de Ciencia, Tecnología e Innovación"><p><strong>Una herramienta para explorar y acceder a las fuentes de información de Uruguay.</strong></p><p>Un desarrollo de la Unidad Nacional de Evaluación del Sistema de Ciencia, Tecnología e Innovación (UNE-CTI).</p><a href="https://gersnano.github.io/cienciaUruguay-pagina/#inicio">Explorar Ciencia Uruguay ↗</a><p>Fecha del relevamiento: 11/11/2026</p></div></footer>
 
 <script>
 window.__DATA__ = __DATA_JSON__;
@@ -450,8 +470,8 @@ const norm = s => String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/
 const isInt = r => r.ambito === "Internacional";
 const fmtDate = s => { if(!s) return ""; const p = s.split("-"); return p.length===3 ? `${p[2]}/${p[1]}/${p[0]}` : s; };
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-$("#corte").textContent = fmtDate(D.corte); $("#corte2").textContent = fmtDate(D.corte);
-$("#regla").textContent = D.regla;
+ 
+
 const AK = Object.keys(A);                       // A1..A8
 const areaKey = name => AK.find(k => A[k] === name);
 const SHORT = {A1:"Economía",A2:"Trabajo y protección",A3:"Salud y población",A4:"Educación y cultura",A5:"Ciencia y tecnología",A6:"Ambiente y energía",A7:"Territorio",A8:"Estado y derechos"};
@@ -503,7 +523,7 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
   const inside = (x,y) => { let c=false; for(let i=0,j=poly.length-1;i<poly.length;j=i++){ const [xi,yi]=poly[i],[xj,yj]=poly[j]; if(((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi)+xi)) c=!c; } return c; };
   let dots = ""; const step = 8.4;
   for (let y=Y0; y<=Y0+H; y+=step) for (let x=X0; x<=X0+W; x+=step) if (inside(x,y)) dots += `<circle class="mapdot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" style="--x:${(x-X0+ (y-Y0)*.4).toFixed(0)}"/>`;
-  const C = {Montevideo:[-56.19,-34.88],Salto:[-57.96,-31.39],Paysandú:[-58.06,-32.32],Rivera:[-55.55,-30.92],Artigas:[-56.47,-30.42],Tacuarembó:[-55.98,-31.72],Melo:[-54.19,-32.37],Durazno:[-56.52,-33.38],Maldonado:[-54.95,-34.88],Colonia:[-57.82,-34.45],"Treinta y Tres":[-54.38,-33.23],Mercedes:[-58.0,-33.25],Florida:[-56.21,-34.1],Rocha:[-54.33,-34.48],Minas:[-55.24,-34.37],"San José":[-56.71,-34.34],Trinidad:[-56.9,-33.52],"Fray Bentos":[-58.28,-33.12]};
+  const C = {Montevideo:[-56.19,-34.88],Salto:[-57.96,-31.39],Paysandú:[-58.06,-32.32],Rivera:[-55.55,-30.92],Artigas:[-56.47,-30.42],Tacuarembó:[-55.98,-31.72],"Cerro Largo":[-54.19,-32.37],Durazno:[-56.52,-33.38],Maldonado:[-54.95,-34.88],Colonia:[-57.82,-34.45],"Treinta y Tres":[-54.38,-33.23],Soriano:[-58.0,-33.25],Florida:[-56.21,-34.1],Rocha:[-54.33,-34.48],Lavalleja:[-55.24,-34.37],"San José":[-56.71,-34.34],Flores:[-56.9,-33.52],"Río Negro":[-58.28,-33.12],Canelones:[-56.28,-34.52]};
   const nodes = Object.entries(C).map(([n,c],k)=>({n, p:pr(c), k}));
   const mvd = nodes[0];
   const edges = [];
@@ -521,14 +541,14 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
     const a = i/AK.length*2*Math.PI - Math.PI/2, x = 300 + 252*Math.cos(a), y = 276 + 222*Math.sin(a), s = areaStat[k];
     const near = nodes.slice().sort((b,c)=>Math.hypot(b.p[0]-x,b.p[1]-y)-Math.hypot(c.p[0]-x,c.p[1]-y))[0];
     sp += `<path class="spoke" d="M${x.toFixed(1)} ${y.toFixed(1)}L${near.p[0].toFixed(1)} ${near.p[1].toFixed(1)}"/>`;
-    ic += `<g class="aicon" tabindex="0" role="button" data-area="${k}" aria-label="${esc(A[k])}: ${s.n} recursos" style="--d:${i}">
+    ic += `<g class="aicon" tabindex="0" role="button" data-area="${k}" aria-label="${esc(A[k])}: ${s.n} fuentes" style="--d:${i}">
       <g class="scl"><circle class="ring" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="33"/>
       <svg class="ic" x="${(x-21).toFixed(1)}" y="${(y-21).toFixed(1)}" width="42" height="42" viewBox="0 0 120 120">${OBJ[k]()}</svg></g>
       <text x="${x.toFixed(1)}" y="${(y+49).toFixed(1)}" text-anchor="middle">${LBL[k]}</text>
-      <text class="cnt" x="${x.toFixed(1)}" y="${(y+64).toFixed(1)}" text-anchor="middle">${s.n} recursos</text></g>`;
+      </g>`;
   });
-  // capa de datos bajo la lupa: puntos coloreados por concentración, nombres y recursos departamentales
-  const DEP = {Montevideo:"Montevideo",Salto:"Salto",Rivera:"Rivera",Maldonado:"Maldonado",Canelones:"Canelones"};
+  // capa de datos bajo la lupa: puntos coloreados por concentración, nombres y fuentes departamentales
+  const DEP = Object.fromEntries(Object.keys(C).map(n => [n,n]));
   const depCount = n => R.filter(r => !isInt(r) && (r.inst.includes(n) || (r.alcance||"").includes(n))).length;
   const weights = nodes.map(n => ({p:n.p, w: 1 + (DEP[n.n] ? depCount(n.n) : 0) + (n===mvd ? 12 : 0)}));
   const heat = (x,y) => weights.reduce((a,c)=>a + c.w*Math.exp(-((x-c.p[0])**2+(y-c.p[1])**2)/(2*34*34)), 0);
@@ -536,16 +556,16 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
   let ddots = "";
   for (let y=Y0; y<=Y0+H; y+=step) for (let x=X0; x<=X0+W; x+=step) if (inside(x,y)) { const h = heat(x,y); ddots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2.2+Math.min(1.6,h*.18)).toFixed(2)}" style="fill:${ramp(h)}"/>`; }
   const labels = nodes.map(n => { const c = DEP[n.n] ? depCount(n.n) : 0;
-    return `<g class="lab"><circle cx="${n.p[0].toFixed(1)}" cy="${n.p[1].toFixed(1)}" r="${n===mvd?6.5:4.5}" class="lnode"/><text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+4).toFixed(1)}" class="ltxt">${esc(n.n)}</text>${c?`<text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+16).toFixed(1)}" class="lcnt">${c} recursos departamentales</text>`:""}</g>`; }).join("");
+    return `<g class="lab"><circle cx="${n.p[0].toFixed(1)}" cy="${n.p[1].toFixed(1)}" r="${n===mvd?6.5:4.5}" class="lnode"/><text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+4).toFixed(1)}" class="ltxt">${esc(n.n)}</text>${c?`<text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+16).toFixed(1)}" class="lcnt">${c} fuentes departamentales</text>`:""}</g>`; }).join("");
   // capa de datos de las áreas (visible bajo la lupa)
   let dic = "";
   AK.forEach((k,i) => { const a = i/AK.length*2*Math.PI - Math.PI/2, x = 300 + 252*Math.cos(a), y = 276 + 222*Math.sin(a), s = areaStat[k];
     dic += `<g style="color:var(--${k.toLowerCase()})"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="40" style="fill:color-mix(in srgb,currentColor 14%,var(--paper))"/>
       <svg x="${(x-17).toFixed(1)}" y="${(y-36).toFixed(1)}" width="34" height="34" viewBox="0 0 120 120">${OBJ[k]()}</svg>
       <text x="${x.toFixed(1)}" y="${(y+18).toFixed(1)}" text-anchor="middle" class="dnum">${s.n}</text>
-      <text x="${x.toFixed(1)}" y="${(y+56).toFixed(1)}" text-anchor="middle" class="dsub2">${s.an} CON ANÁLISIS · ${s.gaps} VACÍO${s.gaps===1?"":"S"}</text></g>`; });
+      <text x="${x.toFixed(1)}" y="${(y+56).toFixed(1)}" text-anchor="middle" class="dsub2">${s.n} FUENTES DISPONIBLES</text></g>`; });
   svg.innerHTML = `<defs><clipPath id="lensClip"><circle id="lensCirc" cx="300" cy="276" r="0"/></clipPath></defs>
-    <g>${sp}</g><g>${dots}</g><g>${eh}</g><g>${pk}</g><g>${nh}</g>${ic}
+    <g>${sp}</g><g>${dots}</g><g>${eh}</g><g>${pk}</g><g>${nh}</g><g aria-label="Los 19 departamentos">${nodes.map(n=>`<text x="${(n.p[0]+7).toFixed(1)}" y="${(n.p[1]-7).toFixed(1)}" class="ltxt" style="font-size:8px">${esc(n.n)}</text>`).join("")}</g>${ic}
     <g clip-path="url(#lensClip)" class="lensview"><rect width="600" height="560" class="lensbg"/><g>${eh}</g><g>${ddots}</g>${labels}${dic}</g>
     <circle id="lensRing" cx="300" cy="276" r="0" class="lensring"/>`;
   // lupa: revela la capa de datos bajo el cursor
@@ -560,15 +580,14 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
   svg.addEventListener("pointerdown", e => { [tx,ty] = toSvg(e); if (rad < 1) { lx = tx; ly = ty; } rt = RMAX; kick(); });
   svg.addEventListener("pointerleave", () => { rt = 0; kick(); });
   svg.querySelectorAll(".aicon").forEach(g => {
-    const go = () => { state.area = new Set([A[g.dataset.area]]); setQ(""); };
+    const go = () => { const d=window.Directory; d.resetFilters(); d.state.area=A[g.dataset.area]; document.querySelector("#areaFilter").value=d.state.area; d.openResults(""); };
     g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key==="Enter"||e.key===" ") { e.preventDefault(); go(); } });
   });
 })();
 
-
 /* ---------- tarjetas de búsqueda estilo código ---------- */
 /* ---------- cifras ---------- */
-const statv = {nac: R.filter(r=>!isInt(r)).length, int: R.filter(isInt).length, inst: new Set(R.map(r=>r.inst)).size, gap: Object.values(cov).filter(c=>c.st==="bad").length};
+const statv = {nac: R.filter(r=>!isInt(r)).length, int: R.filter(isInt).length, areas: Object.keys(A).length, temas: Object.keys(T).filter(c=>R.some(r=>r.tema===c||r.temas_sec.includes(c))).length};
 document.querySelectorAll(".cu").forEach(el => {
   const v = statv[el.dataset.k]; el.textContent = v; if (reduce) return;
   const t0 = performance.now()+400, dur = 1400;
@@ -576,163 +595,96 @@ document.querySelectorAll(".cu").forEach(el => {
   requestAnimationFrame(step);
 });
 
-/* ---------- búsqueda ---------- */
-const STOP = new Set(["de","del","la","las","el","los","en","y","o","a","para","con","sobre","por","un","una","datos","dato","uruguay","observatorio","observatorios"]);
-const conceptIndex = [];
-for (const [c,t] of Object.entries(T)) [t.nombre, ...t.sin].forEach(s => conceptIndex.push({k:"t", code:c, s:norm(s)}));
-for (const [c,e] of Object.entries(E)) [e.nombre, ...e.sin].forEach(s => conceptIndex.push({k:"e", code:c, s:norm(s)}));
-conceptIndex.sort((a,b)=>b.s.length-a.s.length);
-function resolve(q){
-  let rest = " " + norm(q).replace(/[^a-z0-9+ ]/g," ").replace(/\s+/g," ") + " ";
-  const found = [], seen = new Set();
-  for (const ci of conceptIndex) { if (ci.s.length<2) continue; const pat=" "+ci.s+" ";
-    if (rest.includes(pat)) { const key=ci.k+ci.code; if(!seen.has(key)){seen.add(key);found.push(ci);} rest = rest.replace(pat," "); } }
-  const toks = rest.trim().split(" ").filter(w => w.length>=4 && !STOP.has(w));
-  const leftover = [];
-  for (const w of toks) { const hit = conceptIndex.find(ci => ci.s.split(" ").some(p => p.startsWith(w)));
-    if (hit) { if(!seen.has(hit.k+hit.code)){ seen.add(hit.k+hit.code); found.push(hit);} } else leftover.push(w); }
-  const extra = rest.trim().split(" ").filter(w => w.length===3 && !STOP.has(w));
-  return {concepts: found, words: [...leftover, ...extra]};
-}
-const state = {q:"", area:new Set(), amb:new Set(), niv:new Set(), enf:new Set(), ods:null, vig:false, dl:false, limit:24};
-const hay = r => norm([r.nombre, r.inst, r.etiquetas, r.desc, r.tipo].join(" "));
-function run(){
-  const {concepts, words} = resolve(state.q);
-  const tC = concepts.filter(c=>c.k==="t").map(c=>c.code), eC = concepts.filter(c=>c.k==="e").map(c=>c.code);
-  let list = R.map(r => { let hits=0, score=0;
-    for (const c of tC) { if (r.tema===c) {hits++; score+=3;} else if (r.temas_sec.includes(c)) {hits++; score+=1.5;} }
-    for (const c of eC) if (r.enfoques.includes(c)) {hits++; score+=3;}
-    if (words.length) { const h=hay(r), nm=norm(r.nombre+" "+r.inst);
-      for (const w of words) { if (nm.includes(w)) {score+=2; hits+=.5;} else if (!concepts.length && h.includes(w)) {score+=1; hits+=.5;} } }
-    return {r,hits,score}; });
-  if (concepts.length || words.length) list = list.filter(x=>x.score>0);
-  const pass = r => (!state.area.size||state.area.has(r.area)) && (!state.amb.size||state.amb.has(r.ambito)) &&
-    (!state.niv.size||state.niv.has(r.nivel)) && (!state.enf.size||[...state.enf].every(e=>r.enfoques.includes(e))) &&
-    (!state.ods||r.ods===state.ods) && (!state.vig||r.periodo) && (!state.dl||r.descarga==="Sí");
-  state.pass = pass;
-  list = list.filter(({r}) => pass(r));
-  const refSet = new Set([...Object.values(T),...Object.values(E)].flatMap(x=>x.refs||[]));
-  list.sort((a,b)=>(b.hits-a.hits)||(b.score-a.score)||(refSet.has(b.r.id)-refSet.has(a.r.id))||(rankKey(a.r)-rankKey(b.r))||(b.r.nivel-a.r.nivel)||a.r.nombre.localeCompare(b.r.nombre));
-  renderInterp(concepts, words); renderResults(list, concepts); renderFilters();
-}
-function renderInterp(concepts, words){
-  const el = $("#interp");
-  $("#resTitle").innerHTML = state.q ? `Resultados para <em>«${esc(state.q)}»</em>` : (state.ods ? `Recursos del <em>ODS ${state.ods}</em>` : (state.area.size||state.enf.size ? "Recursos <em>filtrados</em>" : "Inventario <em>completo</em>"));
-  if (!concepts.length && !words.length && !state.ods) { el.innerHTML = ""; return; }
-  const term = concepts.length ? (concepts[0].k==="t" ? T[concepts[0].code].agesic : E[concepts[0].code].nombre) : state.q;
-  let h = `<div class="interp"><span class="lbl">interpretado como</span>`;
-  for (const c of concepts) h += c.k==="t" ? `<span class="concept t"><span class="mono">${c.code}</span>${esc(T[c.code].nombre)}</span>` : `<span class="concept e">Enfoque · ${esc(E[c.code].nombre)}</span>`;
-  for (const w of words) h += `<span class="concept">“${esc(w)}”</span>`;
-  if (state.ods) h += `<span class="concept" style="background:${ODSC[state.ods]};color:${ODSTXT[state.ods]||"#fff"}">ODS ${state.ods}</span><button class="more" data-act="clearods">quitar ODS</button>`;
-  if (term) h += `<a class="agesic" href="https://catalogodatos.gub.uy/dataset?q=${encodeURIComponent(term)}" target="_blank" rel="noopener">Datos crudos en el Catálogo Nacional ↗</a>`;
-  el.innerHTML = h + `</div>`;
-}
-const lvl = n => `<span class="lvl" title="Nivel ${n}: ${esc(N[n].nombre)}"><i>${[1,2,3,4].map(k=>`<b class="${k<=n?"on":""}"></b>`).join("")}</i>${esc(N[n].nombre)}</span>`;
-function card(r,i,rank){
-  const t = T[r.tema], ak = areaKey(r.area);
-  return `<article class="card${rank?" ref":""}" style="--i:${Math.min(i,18)}">
-    <div class="meta">${rank?`<span class="rank" title="Referencia principal ${rank}">${rank}</span>`:glyphUse(ak)}<span>${esc(r.id)} · ${esc(r.tipo)}</span><span class="amb">${r.contenido==="A revisar"?'<span class="badge rev">A revisar</span>':esc(r.ambito)}</span></div>
-    <h3><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.nombre)}</a></h3>
-    <div class="inst">${esc(r.inst)}</div>
-    <p class="desc">${esc(r.desc)}</p>
-    <div class="chips"><button class="chip" data-q="${esc(t.nombre)}">${esc(t.nombre)}</button>${r.temas_sec.map(c=>`<button class="chip sec" data-q="${esc(T[c].nombre)}">${esc(T[c].nombre)}</button>`).join("")}${r.enfoques.map(c=>`<button class="chip enf" data-q="${esc(E[c].nombre)}">${esc(E[c].nombre)}</button>`).join("")}</div>
-    <div class="foot">${lvl(r.nivel)}<span class="vig ${r.periodo?"ok":""}">${r.periodo?("Datos: "+esc(r.periodo)):"Período no comprobado"}</span></div>
-    <button class="more" data-ficha="${esc(r.id)}" aria-expanded="false">Ver ficha</button>
-    <dl class="ficha" id="f-${esc(r.id)}" hidden>
-      <dt>Área</dt><dd>${esc(r.area)}</dd><dt>Naturaleza</dt><dd>${esc(r.nat)}</dd><dt>Alcance</dt><dd>${esc(r.alcance)}</dd>
-      <dt>Descarga</dt><dd>${esc(r.descarga)}</dd><dt>API</dt><dd>${esc(r.api)}</dd>
-      <dt>Desagregación</dt><dd>Territorial: ${esc(r.des_terr)} · Por sexo: ${esc(r.des_sexo)}</dd>
-      ${r.pub?`<dt>Publicación</dt><dd>${esc(fmtDate(r.pub))}</dd>`:""}${r.rel?`<dt>Sistema</dt><dd>${esc(r.rel)}</dd>`:""}
-      ${r.notas?`<dt>Notas</dt><dd>${esc(r.notas)}</dd>`:""}
-      ${r.fuentes?`<dt>Fuente</dt><dd><a href="${esc(r.fuentes.split(/[\s;]/)[0])}" target="_blank" rel="noopener">verificación ↗</a></dd>`:""}
-    </dl></article>`;
-}
-function row(r){
-  const ak = areaKey(r.area);
-  return `<div class="row">${glyphUse(ak)}<div style="min-width:0"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.nombre)}</a><span class="ri">${esc(r.inst)} · ${esc(T[r.tema].nombre)}</span></div>
-    <div class="rt">${r.contenido==="A revisar"?'<span class="badge rev">A revisar</span>':""}${r.gran==="Portal general"?'<span class="badge">Portal general</span>':""}${lvl(r.nivel)}</div></div>`;
-}
-const rankKey = r => (r.contenido==="A revisar"?2:0) + (r.gran==="Portal general"?1:0);
-function renderResults(list, concepts){
-  const need = concepts.length;
-  const nac = list.filter(x=>!isInt(x.r)), int = list.filter(x=>isInt(x.r));
-  $("#count").innerHTML = `<b>${list.length}</b> recursos · ${nac.length} nacionales y departamentales · ${int.length} internacionales`;
-  if (!list.length) { $("#results").innerHTML = `<div class="empty">No hay recursos para esta búsqueda con los filtros actuales. Si el tema existe en la taxonomía y no tiene recursos, es un vacío del ecosistema.</div>`; return; }
-  let h = "", i = 0;
-  if (need) {
-    // referencias principales: lista curada del concepto (o recursos que cumplen todos los conceptos)
-    const byId = new Map(nac.map(x=>[x.r.id,x]));
-    R.forEach(r => { if (!byId.has(r.id) && !isInt(r) && state.pass(r)) byId.set(r.id, {r, hits:0, score:0}); });
-    let featured = [];
-    if (need === 1) {
-      const c = concepts[0], refs = (c.k==="t" ? T[c.code].refs : E[c.code].refs) || [];
-      featured = refs.map(id=>byId.get(id)).filter(x=>x && x.r.contenido!=="A revisar");
-    } else {
-      const refs = new Set(concepts.flatMap(c => (c.k==="t" ? T[c.code].refs : E[c.code].refs) || []));
-      featured = nac.filter(x=>x.hits>=need).sort((a,b)=>(refs.has(b.r.id)-refs.has(a.r.id))||(rankKey(a.r)-rankKey(b.r))).slice(0,5);
-    }
-    if (!featured.length) featured = nac.filter(x=>x.r.contenido!=="A revisar").sort((a,b)=>(b.hits-a.hits)||(rankKey(a.r)-rankKey(b.r))||(b.r.nivel-a.r.nivel)).slice(0,3);
-    const fids = new Set(featured.map(x=>x.r.id));
-    const rest = nac.filter(x=>!fids.has(x.r.id)).sort((a,b)=>(b.hits-a.hits)||(rankKey(a.r)-rankKey(b.r))||(b.score-a.score));
-    h += `<div class="group-title">Referencias principales <small>${featured.length}</small></div><div class="results">${featured.map((x,k)=>card(x.r,i++,k+1)).join("")}</div>`;
-    if (rest.length) h += `<details class="others"><summary>Otros recursos con información sobre el tema <small>${rest.length}</small></summary><div class="rows">${rest.map(x=>row(x.r)).join("")}</div></details>`;
-    if (int.length) h += `<details class="others"><summary>Comparación internacional <small>${int.length}</small></summary><div class="rows">${int.map(x=>row(x.r)).join("")}</div></details>`;
-  } else {
-    const shown = nac.slice(0, state.limit);
-    h += `<div class="group-title">Uruguay <small>${nac.length}</small></div><div class="results">${shown.map(x=>card(x.r,i++)).join("")}</div>`;
-    if (nac.length > state.limit) h += `<button class="showall" data-act="more">Mostrar ${Math.min(24, nac.length-state.limit)} más · quedan ${nac.length-state.limit}</button>`;
-    if (int.length) h += `<details class="others"><summary>Comparación internacional <small>${int.length}</small></summary><div class="rows">${int.map(x=>row(x.r)).join("")}</div></details>`;
-  }
-  $("#results").innerHTML = h;
-}
-const fgroup = (id, title, items, set, open) => `<details ${open?"open":""}><summary>${title}</summary><div class="fopts">${items.map(([v,l,n,g])=>`<button class="fbtn" data-f="${id}" data-v="${esc(v)}" aria-pressed="${set.has(v)}">${g||""}${esc(l)}<span class="n">${n}</span></button>`).join("")}</div></details>`;
-function renderFilters(){
-  const cnt = fn => R.filter(fn).length;
-  $("#filters").innerHTML =
-    fgroup("area","Área", AK.map(k=>[A[k], SHORT[k], cnt(r=>r.area===A[k]), glyphUse(k)]), state.area, true) +
-    fgroup("amb","Ámbito", ["Nacional","Departamental","Internacional"].map(a=>[a,a,cnt(r=>r.ambito===a)]), state.amb, true) +
-    fgroup("niv","Nivel de análisis", [1,2,3,4].map(n=>[n,`${n} · ${N[n].nombre}`,cnt(r=>r.nivel===n)]), state.niv, false) +
-    fgroup("enf","Enfoque transversal", Object.entries(E).map(([c,e])=>[c,e.nombre,cnt(r=>r.enfoques.includes(c))]), state.enf, false) +
-    `<div><label class="check"><input type="checkbox" id="fvig" ${state.vig?"checked":""}> Solo con período comprobado</label>
-     <label class="check"><input type="checkbox" id="fdl" ${state.dl?"checked":""}> Solo con descarga confirmada</label></div>
-     <button class="reset" data-act="reset">Limpiar filtros y búsqueda</button>`;
-}
-const showRes = () => { const sec = document.getElementById("resultados"); sec.hidden = false; sec.scrollIntoView({behavior: reduce?"auto":"smooth", block:"start"}); };
-const setQ = (q, scroll=true) => { state.q=q; state.limit=24; state.browse = true; $("#q").value=q; $("#heroQ").value=q; run(); if (scroll) showRes(); };
-document.addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  if (b.dataset.q !== undefined) { setQ(b.dataset.q); return; }
-  if (b.dataset.f) { const k=b.dataset.f, v = k==="niv" ? +b.dataset.v : b.dataset.v; const s=state[k]; s.has(v)?s.delete(v):s.add(v); state.limit=24; run(); return; }
-  if (b.dataset.ficha) { const d=document.getElementById("f-"+b.dataset.ficha); d.hidden=!d.hidden; b.textContent=d.hidden?"Ver ficha":"Ocultar ficha"; b.setAttribute("aria-expanded",String(!d.hidden)); return; }
-  if (b.dataset.tema) { setQ(T[b.dataset.tema].nombre); return; }
-  if (b.dataset.enf) { state.enf=new Set([b.dataset.enf]); setQ(""); return; }
-  if (b.dataset.ods) { state.ods=+b.dataset.ods; setQ(""); return; }
-  const act = b.dataset.act;
-  if (act==="more") { state.limit+=24; run(); }
-  if (act==="clearods") { state.ods=null; run(); }
-  if (act==="reset") { Object.assign(state,{area:new Set(),amb:new Set(),niv:new Set(),enf:new Set(),ods:null,vig:false,dl:false}); setQ("",false); state.browse=false; document.getElementById("resultados").hidden = true; document.getElementById("inicio").scrollIntoView({behavior: reduce?"auto":"smooth"}); }
-  if (act==="browse") { setQ(""); }
-});
-document.addEventListener("change", e => { if (e.target.id==="fvig"){state.vig=e.target.checked;run();} if (e.target.id==="fdl"){state.dl=e.target.checked;run();} });
-$("#qForm").addEventListener("submit", e => { e.preventDefault(); setQ($("#q").value,false); });
-$("#heroForm").addEventListener("submit", e => { e.preventDefault(); setQ($("#heroQ").value); });
-let tmr; $("#q").addEventListener("input", e => { clearTimeout(tmr); tmr=setTimeout(()=>{state.q=e.target.value; state.limit=24; run();},180); });
-
-/* ---------- mapa de cobertura ---------- */
-const stCount={ok:0,warn:0,ind:0,bad:0}; let conc=0; Object.values(cov).forEach(c=>{stCount[c.st]++; if(c.conc) conc++;});
-$("#legend").innerHTML = Object.keys(ST).map(k=>`<span class="pill ${SC[k]}"><b>${stCount[k]}</b>${ST[k]}</span>`).join("") + `<span class="pill s-conc"><b>${conc}</b>Alta concentración</span>`;
-$("#areas").innerHTML = AK.map(k => {
-  const ts = Object.entries(T).filter(([c,t])=>t.area===k), s = areaStat[k];
-  return `<div class="area"><header><span class="gc">${glyph(k)}</span><h3>${esc(A[k])}<small>${s.n} recursos · ${s.temas} temas${s.gaps?` · ${s.gaps} sin cobertura`:""}</small></h3></header><div class="tiles">${ts.map(([c,t])=>{const v=cov[c];
-    return `<button class="tile ${v.st}" data-tema="${c}" title="${esc(ST[v.st])}"><span class="dot"></span><span class="tn">${esc(t.nombre)}<small>${v.st==="bad" ? (v.int? `Sin recursos nacionales · ${v.int} internacionales`:"Sin recursos relevados") : `${v.nac} con mención · ${v.an} con análisis${v.int?` · ${v.int} int.`:""}`}</small></span><span class="tc">${v.conc?'<i class="conc" title="Alta concentración"></i>':""}${v.pri}</span></button>`;}).join("")}</div></div>`;
-}).join("");
-$("#enfRow").innerHTML = Object.entries(E).map(([c,e])=>{ const n=R.filter(r=>!isInt(r)&&r.enfoques.includes(c)).length, an=R.filter(r=>!isInt(r)&&r.enfoques.includes(c)&&r.nivel===4).length; const st=n===0?"bad":an===0?"warn":"ok";
-  return `<button class="tile ${st}" data-enf="${c}"><span class="dot"></span><span class="tn">${esc(e.nombre)}<small>${n===0?"Sin recursos explícitos":an+" con análisis"}</small></span><span class="tc">${n}</span></button>`; }).join("");
-
-/* ---------- metodología ---------- */
-$("#scale").innerHTML = [1,2,3,4].map(n=>`<div>${lvl(n)}<span style="color:var(--muted)">${esc(N[n].def)}</span></div>`).join("");
-const nacR = R.filter(r=>!isInt(r)); $("#vigPct").textContent = Math.round(100*nacR.filter(r=>r.periodo).length/nacR.length)+"%";
-document.querySelectorAll(".chips-try button").forEach(b=>b.addEventListener("click",()=>setQ(b.dataset.q)));
-run();
 })();
 </script>
+<script>
+(function(){
+const D=window.__DATA__,R=D.recursos,T=D.temas,E=D.enfoques,A=D.areas;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const institutionNames=[["Universidad de la República","Udelar"],["Agencia Nacional de Investigación e Innovación","ANII"],["Agencia Nacional de Desarrollo","ANDE"],["Oficina de Planeamiento y Presupuesto","OPP"],["Administración Nacional de Educación Pública","ANEP"],["Instituto Nacional de Investigación Agropecuaria","INIA"],["Banco Central del Uruguay","BCU"],["Instituto Nacional de Estadística","INE"],["Banco de Previsión Social","BPS"],["Ministerio de Educación y Cultura","MEC"],["Ministerio de Economía y Finanzas","MEF"],["Ministerio de Ganadería, Agricultura y Pesca","MGAP"],["Ministerio de Desarrollo Social","MIDES"],["Ministerio de Industria, Energía y Minería","MIEM"],["Ministerio de Salud Pública","MSP"],["Ministerio de Trabajo y Seguridad Social","MTSS"],["Ministerio de Transporte y Obras Públicas","MTOP"],["Ministerio de Vivienda y Ordenamiento Territorial","MVOT"],["Instituto Nacional de Logística","INALOG"],["Instituto Nacional de Vitivinicultura","INAVI"],["Instituto Nacional de la Leche","INALE"],["Instituto Nacional de Carnes","INAC"],["Dirección General Impositiva","DGI"],["Instituto Nacional de Empleo y Formación Profesional","INEFOP"],["Instituto del Niño y Adolescente del Uruguay","INAU"],["Banco de Seguros del Estado","BSE"],["Instituto de Regulación y Control del Cannabis","IRCCA"],["Instituto Uruguayo de Meteorología","INUMET"],["Unidad Reguladora de Servicios de Comunicaciones","URSEC"],["Unidad Reguladora de Servicios de Energía y Agua","URSEA"],["Administración Nacional de Puertos","ANP"],["Instituto Geográfico Militar","IGM"],["Instituto Nacional de Evaluación Educativa","INEEd"],["Oficina Nacional del Servicio Civil","ONSC"],["Agencia Reguladora de Compras Estatales","ARCE"],["Unidad Nacional de Seguridad Vial","UNASEV"],["Cámara de Industrias del Uruguay","CIU"],["Cámara Uruguaya de Tecnologías de la Información","CUTI"],["Sistema Nacional de Emergencias","SINAE"]];
+function institutionLabel(value,short=false){return String(value).split(/( \/ | · |; | y )/).map(part=>{const entry=institutionNames.find(([full,abbr])=>norm(part)===norm(full)||norm(part)===norm(abbr));return entry?(short?entry[1]:entry[0]+' ('+entry[1]+')'):part;}).join('');}
+const groups=[
+ ['udelar','Udelar',['udelar','universidad de la republica']],
+ ['bcu','Banco Central del Uruguay',['bcu','banco central del uruguay']],
+ ['ine','Instituto Nacional de Estadística',['ine','instituto nacional de estadistica']],
+ ['bps','Banco de Previsión Social',['bps','banco de prevision social']],
+ ['anii','ANII',['anii','agencia nacional de investigacion e innovacion']],
+ ['ande','ANDE',['ande','agencia nacional de desarrollo']],
+ ['opp','OPP',['opp','oficina de planeamiento y presupuesto']],
+ ['anep','ANEP',['anep','dgetp utu']],
+ ['mec','Ministerio de Educación y Cultura',['mec','ministerio de educacion cultura','ministerio de educacion y cultura']],
+ ['mef','Ministerio de Economía y Finanzas',['mef','ministerio de economia y finanzas']],
+ ['mgap','Ministerio de Ganadería, Agricultura y Pesca',['mgap','ministerio de ganaderia agricultura y pesca']],
+ ['mides','MIDES',['mides','ministerio de desarrollo social']],
+ ['miem','MIEM',['miem','ministerio de industria energia y mineria']],
+ ['msp','Ministerio de Salud Pública',['msp','ministerio de salud publica']],
+ ['mtss','Ministerio de Trabajo y Seguridad Social',['mtss','ministerio de trabajo y seguridad social']],
+ ['interior','Ministerio del Interior',['ministerio del interior','ministerio interior']],
+ ['ambiente','Ministerio de Ambiente',['ministerio de ambiente']],
+ ['cuti','CUTI',['cuti','observatorio ti de cuti y advice']],
+ ['onu','ONU · División de Estadística',['onu division de estadistica']]
+];
+groups.forEach(g=>{g[1]=institutionLabel(g[1]);});
+const hasPhrase=(text,phrase)=>(' '+norm(text)+' ').includes(' '+norm(phrase)+' ');
+function producer(r){const found=groups.find(g=>g[2].some(a=>hasPhrase(r.inst,a)));return found?{id:found[0],label:found[1],aliases:found[2]}:{id:norm(r.inst),label:institutionLabel(r.inst),aliases:[norm(r.inst),norm(institutionLabel(r.inst))]};}
+const producers=new Map();R.forEach(r=>{const p=producer(r);if(!producers.has(p.id))producers.set(p.id,{...p,items:[]});producers.get(p.id).items.push(r);});
+const STOP=new Set(['de','del','la','las','el','los','en','y','o','a','para','con','sobre','por','un','una','datos','dato','uruguay','observatorio','observatorios']);
+const concepts=Object.entries(T).flatMap(([id,t])=>[t.nombre,...t.sin].map(s=>({id,phrase:norm(s)}))).filter(c=>c.phrase.length>2).sort((a,b)=>b.phrase.length-a.phrase.length);
+const state={q:'',area:'',inst:'',amb:'',download:false,limit:24};
+const areaLimits={};
+function search(q=state.q){
+ let rest=norm(q);const institutionMatches=[];
+ const aliases=[...producers.values()].flatMap(p=>p.aliases.map(alias=>({id:p.id,alias:norm(alias)}))).sort((a,b)=>b.alias.length-a.alias.length);
+ for(const {id,alias} of aliases){if(hasPhrase(rest,alias)){if(!institutionMatches.includes(id))institutionMatches.push(id);rest=(' '+rest+' ').replace(' '+alias+' ',' ').trim();}}
+ const topicIds=[];for(const c of concepts){if(hasPhrase(rest,c.phrase)){if(!topicIds.includes(c.id))topicIds.push(c.id);rest=(' '+rest+' ').replace(' '+c.phrase+' ',' ').trim();}}
+ const words=rest.split(/\s+/).filter(w=>w.length>1&&!STOP.has(w));
+ const list=R.map(r=>{const p=producer(r),text=norm([r.nombre,r.inst,r.desc,r.etiquetas,r.tipo,...p.aliases].join(' '));
+ const pass=(!state.area||r.area===state.area)&&(!state.inst||p.id===state.inst)&&(!state.amb||r.ambito===state.amb)&&(!state.download||r.descarga==='Sí')&&(!institutionMatches.length||institutionMatches.includes(p.id))&&topicIds.every(id=>r.tema===id||r.temas_sec.includes(id))&&words.every(w=>text.includes(w));
+ const score=(norm(r.nombre)===norm(q)?100:0)+(norm(q)&&norm(r.nombre).includes(norm(q))?20:0)+words.filter(w=>norm(r.nombre).includes(w)).length*3+topicIds.filter(id=>r.tema===id).length*2;
+ return {r,score,pass};}).filter(x=>x.pass).sort((a,b)=>b.score-a.score||a.r.nombre.localeCompare(b.r.nombre,'es')).map(x=>x.r);
+ return {list,institutionMatches,topicIds};
+}
+function card(r){return `<article class="card"><div class="meta">${esc(r.tipo)}<span class="amb">${esc(r.ambito)}</span></div><h3>${esc(r.nombre)}</h3><div class="inst" title="${esc(institutionLabel(r.inst))}">${esc(institutionLabel(r.inst,true))}</div><p class="desc">${esc(r.desc)}</p><div class="resource-actions"><a class="visit" href="${esc(r.url)}" target="_blank" rel="noopener">Visitar sitio ↗<span class="sr-only"> (abre en otra pestaña)</span></a><button class="more" data-ficha="${esc(r.id)}" aria-expanded="false" aria-controls="f-${esc(r.id)}">Más información</button></div><dl class="ficha" id="f-${esc(r.id)}" hidden><dt>Tema</dt><dd>${esc(T[r.tema].nombre)}</dd><dt>Alcance</dt><dd>${esc(r.alcance)}</dd><dt>Descarga</dt><dd>${esc(r.descarga)}</dd>${r.periodo?`<dt>Período de los datos</dt><dd>${esc(r.periodo)}</dd>`:''}${r.notas?`<dt>Notas</dt><dd>${esc(r.notas)}</dd>`:''}</dl></article>`;}
+function render(){
+ const {list,institutionMatches}=search();$('#resTitle').textContent=state.q?`Resultados para «${state.q}»`:'Fuentes disponibles';
+ $('#count').textContent=`${list.length} ${list.length===1?'fuente':'fuentes'}`;
+ const active=[state.area,state.inst?producers.get(state.inst)?.label:'',state.amb,state.download?'Con descarga':'',...institutionMatches.map(id=>producers.get(id).label)].filter(Boolean);
+ $('#interp').textContent=active.length?'Selección: '+[...new Set(active)].join(' · '):'';
+ $('#results').innerHTML=list.length?Object.entries(A).map(([key,area])=>{
+  const items=list.filter(r=>r.area===area);if(!items.length)return '';
+  const limit=areaLimits[key]||6;
+  return `<section class="resource-block" aria-labelledby="block-${key}"><div class="resource-block-head"><h3 id="block-${key}">${esc(area)}</h3><span>${items.length} ${items.length===1?'fuente':'fuentes'}</span></div><div class="results">${items.slice(0,limit).map(card).join('')}</div>${items.length>limit?`<button class="showall" data-more-area="${key}">Ver más de esta área (${items.length-limit} restantes)</button>`:''}</section>`;
+ }).join(''):'<div class="empty">No encontramos coincidencias. Probá otra palabra o limpiá los filtros.</div>';
+ $('#clearFilters').disabled=!(state.area||state.inst||state.amb||state.download);
+}
+const resetFilters=()=>{state.area='';state.inst='';state.amb='';state.download=false;state.limit=24;$('#areaFilter').value='';$('#institutionFilter').value='';$('#scopeFilter').value='';$('#downloadFilter').checked=false;};
+function openResults(q=state.q){state.q=q;state.limit=24;$('#heroQ').value=q;$('#resultados').hidden=false;render();$('#resultados').scrollIntoView({behavior:'auto',block:'start'});$('#resTitle').focus({preventScroll:true});}
+$('#filters').innerHTML=`<h3>Filtrar fuentes</h3><label for="areaFilter">Tema general</label><select id="areaFilter"><option value="">Todos los temas</option>${Object.values(A).map(a=>`<option value="${esc(a)}">${esc(a)}</option>`).join('')}</select><label for="institutionFilter">Institución</label><select id="institutionFilter"><option value="">Todas las instituciones</option>${[...producers.values()].sort((a,b)=>a.label.localeCompare(b.label,'es')).map(p=>`<option value="${esc(p.id)}">${esc(p.label)}</option>`).join('')}</select><label for="scopeFilter">Ámbito</label><select id="scopeFilter"><option value="">Todos</option>${['Nacional','Departamental','Internacional'].map(a=>`<option>${a}</option>`).join('')}</select><label class="check"><input id="downloadFilter" type="checkbox"> Con descarga confirmada</label><button class="reset" id="clearFilters" data-act="clear">Limpiar filtros</button>`;
+$('#areas').innerHTML=Object.entries(A).sort((a,b)=>a[1].localeCompare(b[1],'es',{sensitivity:'base'})).map(([k,a])=>{const ts=Object.entries(T).filter(([id,t])=>t.area===k).map(([id,t])=>({id,t,n:R.filter(r=>r.tema===id||r.temas_sec.includes(id)).length})).filter(x=>x.n).sort((a,b)=>a.t.nombre.localeCompare(b.t.nombre,'es',{sensitivity:'base'}));return `<div class="area"><header><span class="gc"><svg class="glyph" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--${k.toLowerCase()})"><use href="#o-${k}"/></svg></span><h3>${esc(a)}</h3></header><div class="tiles">${ts.map(({id,t,n})=>`<button class="tile available" data-topic="${id}"><span class="tn">${esc(t.nombre)}</span><span class="tc">${n}</span></button>`).join('')}</div></div>`;}).join('');
+let showAllInstitutions=false;
+function renderInstitutions(){const q=norm($('#institutionSearch').value);const items=[...producers.values()].filter(p=>norm([p.label,...p.aliases].join(' ')).includes(q)).sort((a,b)=>a.label.localeCompare(b.label,'es'));const shown=q||showAllInstitutions?items:items.slice(0,12);$('#institutionList').innerHTML=shown.map(p=>`<button class="institution-entry" data-institution="${esc(p.id)}"><span>${esc(p.label)}</span><small>${p.items.length} ${p.items.length===1?'fuente':'fuentes'}</small></button>`).join('')||'<p>No encontramos esa institución.</p>';$('#moreInstitutions').hidden=!!q||showAllInstitutions||items.length<=12;}
+$('#institutionSearch').addEventListener('input',renderInstitutions);
+$('#moreInstitutions').addEventListener('click',()=>{showAllInstitutions=true;renderInstitutions();});
+renderInstitutions();
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.moreArea){const key=b.dataset.moreArea;areaLimits[key]=(areaLimits[key]||6)+12;render();}
+ if(b.dataset.q!==undefined){resetFilters();openResults(b.dataset.q);}
+ if(b.dataset.topic){resetFilters();openResults(T[b.dataset.topic].nombre);}
+ if(b.dataset.institution){resetFilters();state.inst=b.dataset.institution;$('#institutionFilter').value=state.inst;openResults('');}
+ if(b.dataset.ficha){const panel=document.getElementById('f-'+b.dataset.ficha);panel.hidden=!panel.hidden;b.setAttribute('aria-expanded',String(!panel.hidden));b.textContent=panel.hidden?'Más información':'Ocultar información';}
+ if(b.dataset.act==='browse'){resetFilters();openResults('');}
+ if(b.dataset.act==='clear'){resetFilters();render();}
+ if(b.dataset.act==='close'){$('#resultados').hidden=true;$('#heroQ').focus();}
+ if(b.dataset.act==='more'){state.limit+=24;render();}
+});
+$('#heroForm').addEventListener('submit',e=>{e.preventDefault();resetFilters();openResults($('#heroQ').value);});
+$('#filters').addEventListener('change',()=>{state.area=$('#areaFilter').value;state.inst=$('#institutionFilter').value;state.amb=$('#scopeFilter').value;state.download=$('#downloadFilter').checked;state.limit=24;render();});
+// Expose pure directory queries for local regression checks, without depending on layout.
+window.Directory={search,producer,state,producers,resetFilters,openResults};
+render();
+})();
+
+</script>
+

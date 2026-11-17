@@ -2,6 +2,7 @@
 Uso: python scripts/xlsx_to_json.py data/Observatorios_Uruguay_taxonomia.xlsx data/
 """
 import json, re, sys, datetime
+from pathlib import Path
 import openpyxl
 
 def main(xlsx, outdir):
@@ -68,6 +69,16 @@ def main(xlsx, outdir):
     corte = max([g(row, "Fecha de relevamiento") for row in ws.iter_rows(min_row=2, values_only=True) if row[0]] or [""])
     data = {"corte": corte, "regla": regla, "areas": areas, "temas": temas, "enfoques": enfoques,
             "niveles": niveles, "ods": ods, "recursos": recs}
+    # Preserve additions made after the workbook's survey date.
+    extra_path = Path(outdir) / "recursos_adicionales.json"
+    if extra_path.exists():
+        extras = json.loads(extra_path.read_text(encoding="utf-8"))
+        for extra in extras:
+            if any(r["id"] == extra["id"] or r["url"].rstrip("/") == extra["url"].rstrip("/") for r in recs):
+                continue
+            if extra["tema"] not in temas:
+                raise ValueError(f"Tema no reconocido: {extra['tema']}")
+            recs.append(extra)
     json.dump(data, open(f"{outdir.rstrip('/')}/atlas.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{len(recs)} recursos, {len(temas)} temas -> {outdir}/atlas.json")
 

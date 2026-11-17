@@ -1,4 +1,4 @@
-<title>Observatorios del Uruguay · UNE</title>
+<title>Explorador de fuentes de información de Uruguay · UNE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -384,19 +384,21 @@ html{scroll-behavior:smooth;scroll-padding-top:120px}.top{top:0;background:#ffff
 
 
 .area header{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}.area .gc{width:46px;height:46px;background:transparent;border:1px solid var(--line);border-radius:50%}.area .glyph{width:34px;height:34px}
+
+.brand{max-width:520px;line-height:1.25}.brand>span{display:block}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="sprite"><filter id="wcf" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="70"/><feGaussianBlur stdDeviation="2"/></filter><filter id="paint" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" seed="5" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.25" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in" result="t"/><feDisplacementMap in="t" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/></filter><filter id="wcl" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></defs></svg>
 
-<a class="skip" href="#contenido">Saltar al contenido</a><header class="top"><div class="institutional"><div class="wrap"><a href="#inicio" aria-label="U+I · UNE: inicio del observatorio"><img src="https://gersnano.github.io/cienciaUruguay-pagina/marca/une-ui.png" alt="U+I · UNE" width="104" height="17"></a><a class="ciencia-link" href="https://gersnano.github.io/cienciaUruguay-pagina/#inicio">Ciencia Uruguay ↗</a></div></div><div class="wrap localbar"><a class="brand" href="#inicio">Observatorios <strong>del Uruguay</strong></a><nav class="nav" aria-label="Secciones del observatorio"><a href="#inicio">Inicio</a><a href="#cobertura">Temas</a><a href="#instituciones">Instituciones</a><button class="navbtn" data-act="browse">Ver todos los recursos</button></nav></div></header>
+<a class="skip" href="#contenido">Saltar al contenido</a><header class="top"><div class="institutional"><div class="wrap"><a href="#inicio" aria-label="U+I · UNE: inicio del observatorio"><img src="https://gersnano.github.io/cienciaUruguay-pagina/marca/une-ui.png" alt="U+I · UNE" width="104" height="17"></a><a class="ciencia-link" href="https://gersnano.github.io/cienciaUruguay-pagina/#inicio">Ciencia Uruguay ↗</a></div></div><div class="wrap localbar"><a class="brand" href="#inicio"><span>Explorador de fuentes de información <strong>de Uruguay</strong></span></a><nav class="nav" aria-label="Secciones del explorador"><a href="#inicio">Inicio</a><a href="#cobertura">Temas</a><a href="#instituciones">Instituciones</a><button class="navbtn" data-act="browse">Explorar todas las fuentes</button></nav></div></header>
 <main id="contenido">
 <section class="hero" id="inicio">
   <div class="wc wc1" aria-hidden="true"></div><div class="wc wc2" aria-hidden="true"></div><div class="wc wc3" aria-hidden="true"></div>
   <div class="wrap hgrid">
     <div style="min-width:0;position:relative">
-      <div class="eyebrow">UNIDAD NACIONAL DE EVALUACIÓN · corte <span id="corte"></span></div>
-      <h1 id="h1">Encontrá información<br><strong>sobre Uruguay.</strong></h1>
-      <p class="lead">Explorá datos, estadísticas e informes y conocé quién los publica.</p>
+      <div class="eyebrow">UNIDAD NACIONAL DE EVALUACIÓN</div>
+      <h1 id="h1">Explorá las fuentes de información <strong>de Uruguay.</strong></h1>
+      <p class="lead">Accedé a datos, estadísticas, indicadores, estudios y publicaciones de instituciones nacionales y departamentales. Identificá quién produce la información y dónde consultarla.</p>
       <form class="search" id="heroForm" role="search">
         <label class="sr-only" for="heroQ">Buscar por tema o institución</label>
         <input id="heroQ" type="search" placeholder="Buscá un tema: género, PBI, empleo, CTI…" autocomplete="off">
@@ -411,8 +413,8 @@ html{scroll-behavior:smooth;scroll-padding-top:120px}.top{top:0;background:#ffff
     <div class="art" role="group" aria-label="Mapa interactivo de Uruguay con lupa y accesos por tema"><svg id="artSvg" viewBox="0 0 600 560"></svg><div class="art-hint">Pasá el cursor para explorar con la lupa</div></div>
   </div>
   <div class="wrap"><div class="kpis">
-    <div class="kpi"><span class="ci" data-ico="DB"></span><div><b class="cu" data-k="nac">0</b><span>recursos nacionales y departamentales</span></div></div>
-    <div class="kpi"><span class="ci" data-ico="GL"></span><div><b class="cu" data-k="int">0</b><span>referencias internacionales para comparar</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="DB"></span><div><b class="cu" data-k="nac">0</b><span>fuentes de información relevadas a nivel nacional y departamental.</span></div></div>
+    <div class="kpi"><span class="ci" data-ico="GL"></span><div><b class="cu" data-k="int">0</b><span>fuentes internacionales de referencia.<small style="display:block;margin-top:6px;font-size:12px;line-height:1.4;color:var(--muted)">Incluyen portales, bases de datos, índices y plataformas de comparación.</small></span></div></div>
     <div class="kpi"><span class="ci" data-ico="A8"></span><div><b class="cu" data-k="areas">0</b><span>áreas para explorar</span></div></div>
     <div class="kpi"><span class="ci" data-ico="MG"></span><div><b class="cu" data-k="temas">0</b><span>temas para explorar</span></div></div>
   </div></div>
@@ -422,7 +424,7 @@ html{scroll-behavior:smooth;scroll-padding-top:120px}.top{top:0;background:#ffff
   <div class="wrap">
     <div class="sec-head">
       <div><div class="eyebrow">Resultados</div><h2 id="resTitle" tabindex="-1">Resultados</h2>
-      <p>Encontrá quién publica y abrí el recurso que te interesa.</p></div>
+      <p>Identificá quién produce la información y accedé a sus datos y publicaciones.</p></div>
       <button class="closebtn" data-act="close">Cerrar resultados ✕</button>
     </div>
     <div class="layout">
@@ -440,7 +442,7 @@ html{scroll-behavior:smooth;scroll-padding-top:120px}.top{top:0;background:#ffff
 <section class="block" id="cobertura">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">Explorá los recursos</div><h2>¿Qué tema te interesa?</h2><p>Elegí un tema para ver las fuentes disponibles.</p></div><div class="legend" id="legend" hidden></div>
+      <div><div class="eyebrow">Explorá las fuentes de información</div><h2>¿Qué tema te interesa?</h2><p>Elegí un tema para ver las fuentes disponibles.</p></div><div class="legend" id="legend" hidden></div>
     </div>
     <div class="areas" id="areas"></div>
     
@@ -448,10 +450,10 @@ html{scroll-behavior:smooth;scroll-padding-top:120px}.top{top:0;background:#ffff
   </div>
 </section>
 
-<section class="block band" id="instituciones"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Quién publica</div><h2>Explorá por institución</h2><p>Elegí una institución para ver sus recursos. Sus unidades y programas se agrupan bajo el mismo nombre.</p></div></div><label for="institutionSearch">Buscar institución</label><input id="institutionSearch" class="institution-search" type="search" placeholder="Nombre o sigla: Udelar, INE, BCU…"><div id="institutionList"></div><button id="moreInstitutions" class="showall">Ver todas las instituciones</button></div></section>
+<section class="block band" id="instituciones"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Quién publica</div><h2>Explorá por institución</h2><p>Seleccioná una institución para conocer la información que produce y publica. Sus unidades y programas se agrupan bajo el mismo nombre.</p></div></div><label for="institutionSearch">Buscar institución</label><input id="institutionSearch" class="institution-search" type="search" placeholder="Nombre o sigla: Udelar, INE, BCU…"><div id="institutionList"></div><button id="moreInstitutions" class="showall">Ver todas las instituciones</button></div></section>
 
 </main>
-<footer class="une-footer"><div class="wrap"><img src="https://gersnano.github.io/cienciaUruguay-pagina/marca/une-horizontal-blanco.png" alt="UNE · Unidad Nacional de Evaluación del Sistema de Ciencia, Tecnología e Innovación"><p>Un directorio para encontrar información y datos sobre Uruguay. Un desarrollo de la UNE · U+I.</p><a href="https://gersnano.github.io/cienciaUruguay-pagina/#inicio">Explorar Ciencia Uruguay ↗</a><p>Última incorporación: visualizador CSIC · 11 de noviembre de 2026. Corte del relevamiento original: 2026-10-08.</p></div></footer>
+<footer class="une-footer"><div class="wrap"><img src="https://gersnano.github.io/cienciaUruguay-pagina/marca/une-horizontal-blanco.png" alt="UNE · Unidad Nacional de Evaluación del Sistema de Ciencia, Tecnología e Innovación"><p><strong>Una herramienta para explorar y acceder a las fuentes de información de Uruguay.</strong></p><p>Un desarrollo de la Unidad Nacional de Evaluación del Sistema de Ciencia, Tecnología e Innovación (UNE-CTI).</p><a href="https://gersnano.github.io/cienciaUruguay-pagina/#inicio">Explorar Ciencia Uruguay ↗</a><p>Fecha del relevamiento: 11/11/2026</p></div></footer>
 
 <script>
 window.__DATA__ = __DATA_JSON__;
@@ -468,7 +470,7 @@ const norm = s => String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/
 const isInt = r => r.ambito === "Internacional";
 const fmtDate = s => { if(!s) return ""; const p = s.split("-"); return p.length===3 ? `${p[2]}/${p[1]}/${p[0]}` : s; };
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-$("#corte").textContent = fmtDate(D.corte); 
+ 
 
 const AK = Object.keys(A);                       // A1..A8
 const areaKey = name => AK.find(k => A[k] === name);
@@ -521,7 +523,7 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
   const inside = (x,y) => { let c=false; for(let i=0,j=poly.length-1;i<poly.length;j=i++){ const [xi,yi]=poly[i],[xj,yj]=poly[j]; if(((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi)+xi)) c=!c; } return c; };
   let dots = ""; const step = 8.4;
   for (let y=Y0; y<=Y0+H; y+=step) for (let x=X0; x<=X0+W; x+=step) if (inside(x,y)) dots += `<circle class="mapdot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" style="--x:${(x-X0+ (y-Y0)*.4).toFixed(0)}"/>`;
-  const C = {Montevideo:[-56.19,-34.88],Salto:[-57.96,-31.39],Paysandú:[-58.06,-32.32],Rivera:[-55.55,-30.92],Artigas:[-56.47,-30.42],Tacuarembó:[-55.98,-31.72],Melo:[-54.19,-32.37],Durazno:[-56.52,-33.38],Maldonado:[-54.95,-34.88],Colonia:[-57.82,-34.45],"Treinta y Tres":[-54.38,-33.23],Mercedes:[-58.0,-33.25],Florida:[-56.21,-34.1],Rocha:[-54.33,-34.48],Minas:[-55.24,-34.37],"San José":[-56.71,-34.34],Trinidad:[-56.9,-33.52],"Fray Bentos":[-58.28,-33.12]};
+  const C = {Montevideo:[-56.19,-34.88],Salto:[-57.96,-31.39],Paysandú:[-58.06,-32.32],Rivera:[-55.55,-30.92],Artigas:[-56.47,-30.42],Tacuarembó:[-55.98,-31.72],"Cerro Largo":[-54.19,-32.37],Durazno:[-56.52,-33.38],Maldonado:[-54.95,-34.88],Colonia:[-57.82,-34.45],"Treinta y Tres":[-54.38,-33.23],Soriano:[-58.0,-33.25],Florida:[-56.21,-34.1],Rocha:[-54.33,-34.48],Lavalleja:[-55.24,-34.37],"San José":[-56.71,-34.34],Flores:[-56.9,-33.52],"Río Negro":[-58.28,-33.12],Canelones:[-56.28,-34.52]};
   const nodes = Object.entries(C).map(([n,c],k)=>({n, p:pr(c), k}));
   const mvd = nodes[0];
   const edges = [];
@@ -539,14 +541,14 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
     const a = i/AK.length*2*Math.PI - Math.PI/2, x = 300 + 252*Math.cos(a), y = 276 + 222*Math.sin(a), s = areaStat[k];
     const near = nodes.slice().sort((b,c)=>Math.hypot(b.p[0]-x,b.p[1]-y)-Math.hypot(c.p[0]-x,c.p[1]-y))[0];
     sp += `<path class="spoke" d="M${x.toFixed(1)} ${y.toFixed(1)}L${near.p[0].toFixed(1)} ${near.p[1].toFixed(1)}"/>`;
-    ic += `<g class="aicon" tabindex="0" role="button" data-area="${k}" aria-label="${esc(A[k])}: ${s.n} recursos" style="--d:${i}">
+    ic += `<g class="aicon" tabindex="0" role="button" data-area="${k}" aria-label="${esc(A[k])}: ${s.n} fuentes" style="--d:${i}">
       <g class="scl"><circle class="ring" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="33"/>
       <svg class="ic" x="${(x-21).toFixed(1)}" y="${(y-21).toFixed(1)}" width="42" height="42" viewBox="0 0 120 120">${OBJ[k]()}</svg></g>
       <text x="${x.toFixed(1)}" y="${(y+49).toFixed(1)}" text-anchor="middle">${LBL[k]}</text>
       </g>`;
   });
-  // capa de datos bajo la lupa: puntos coloreados por concentración, nombres y recursos departamentales
-  const DEP = {Montevideo:"Montevideo",Salto:"Salto",Rivera:"Rivera",Maldonado:"Maldonado",Canelones:"Canelones"};
+  // capa de datos bajo la lupa: puntos coloreados por concentración, nombres y fuentes departamentales
+  const DEP = Object.fromEntries(Object.keys(C).map(n => [n,n]));
   const depCount = n => R.filter(r => !isInt(r) && (r.inst.includes(n) || (r.alcance||"").includes(n))).length;
   const weights = nodes.map(n => ({p:n.p, w: 1 + (DEP[n.n] ? depCount(n.n) : 0) + (n===mvd ? 12 : 0)}));
   const heat = (x,y) => weights.reduce((a,c)=>a + c.w*Math.exp(-((x-c.p[0])**2+(y-c.p[1])**2)/(2*34*34)), 0);
@@ -554,16 +556,16 @@ AK.forEach(k=>{ const rs = R.filter(r=>!isInt(r)&&r.area===A[k]); const ts = Obj
   let ddots = "";
   for (let y=Y0; y<=Y0+H; y+=step) for (let x=X0; x<=X0+W; x+=step) if (inside(x,y)) { const h = heat(x,y); ddots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2.2+Math.min(1.6,h*.18)).toFixed(2)}" style="fill:${ramp(h)}"/>`; }
   const labels = nodes.map(n => { const c = DEP[n.n] ? depCount(n.n) : 0;
-    return `<g class="lab"><circle cx="${n.p[0].toFixed(1)}" cy="${n.p[1].toFixed(1)}" r="${n===mvd?6.5:4.5}" class="lnode"/><text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+4).toFixed(1)}" class="ltxt">${esc(n.n)}</text>${c?`<text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+16).toFixed(1)}" class="lcnt">${c} recursos departamentales</text>`:""}</g>`; }).join("");
+    return `<g class="lab"><circle cx="${n.p[0].toFixed(1)}" cy="${n.p[1].toFixed(1)}" r="${n===mvd?6.5:4.5}" class="lnode"/><text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+4).toFixed(1)}" class="ltxt">${esc(n.n)}</text>${c?`<text x="${(n.p[0]+8).toFixed(1)}" y="${(n.p[1]+16).toFixed(1)}" class="lcnt">${c} fuentes departamentales</text>`:""}</g>`; }).join("");
   // capa de datos de las áreas (visible bajo la lupa)
   let dic = "";
   AK.forEach((k,i) => { const a = i/AK.length*2*Math.PI - Math.PI/2, x = 300 + 252*Math.cos(a), y = 276 + 222*Math.sin(a), s = areaStat[k];
     dic += `<g style="color:var(--${k.toLowerCase()})"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="40" style="fill:color-mix(in srgb,currentColor 14%,var(--paper))"/>
       <svg x="${(x-17).toFixed(1)}" y="${(y-36).toFixed(1)}" width="34" height="34" viewBox="0 0 120 120">${OBJ[k]()}</svg>
       <text x="${x.toFixed(1)}" y="${(y+18).toFixed(1)}" text-anchor="middle" class="dnum">${s.n}</text>
-      <text x="${x.toFixed(1)}" y="${(y+56).toFixed(1)}" text-anchor="middle" class="dsub2">${s.n} RECURSOS DISPONIBLES</text></g>`; });
+      <text x="${x.toFixed(1)}" y="${(y+56).toFixed(1)}" text-anchor="middle" class="dsub2">${s.n} FUENTES DISPONIBLES</text></g>`; });
   svg.innerHTML = `<defs><clipPath id="lensClip"><circle id="lensCirc" cx="300" cy="276" r="0"/></clipPath></defs>
-    <g>${sp}</g><g>${dots}</g><g>${eh}</g><g>${pk}</g><g>${nh}</g>${ic}
+    <g>${sp}</g><g>${dots}</g><g>${eh}</g><g>${pk}</g><g>${nh}</g><g aria-label="Los 19 departamentos">${nodes.map(n=>`<text x="${(n.p[0]+7).toFixed(1)}" y="${(n.p[1]-7).toFixed(1)}" class="ltxt" style="font-size:8px">${esc(n.n)}</text>`).join("")}</g>${ic}
     <g clip-path="url(#lensClip)" class="lensview"><rect width="600" height="560" class="lensbg"/><g>${eh}</g><g>${ddots}</g>${labels}${dic}</g>
     <circle id="lensRing" cx="300" cy="276" r="0" class="lensring"/>`;
   // lupa: revela la capa de datos bajo el cursor
@@ -601,6 +603,8 @@ const D=window.__DATA__,R=D.recursos,T=D.temas,E=D.enfoques,A=D.areas;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const institutionNames=[["Universidad de la República","Udelar"],["Agencia Nacional de Investigación e Innovación","ANII"],["Agencia Nacional de Desarrollo","ANDE"],["Oficina de Planeamiento y Presupuesto","OPP"],["Administración Nacional de Educación Pública","ANEP"],["Instituto Nacional de Investigación Agropecuaria","INIA"],["Banco Central del Uruguay","BCU"],["Instituto Nacional de Estadística","INE"],["Banco de Previsión Social","BPS"],["Ministerio de Educación y Cultura","MEC"],["Ministerio de Economía y Finanzas","MEF"],["Ministerio de Ganadería, Agricultura y Pesca","MGAP"],["Ministerio de Desarrollo Social","MIDES"],["Ministerio de Industria, Energía y Minería","MIEM"],["Ministerio de Salud Pública","MSP"],["Ministerio de Trabajo y Seguridad Social","MTSS"],["Ministerio de Transporte y Obras Públicas","MTOP"],["Ministerio de Vivienda y Ordenamiento Territorial","MVOT"],["Instituto Nacional de Logística","INALOG"],["Instituto Nacional de Vitivinicultura","INAVI"],["Instituto Nacional de la Leche","INALE"],["Instituto Nacional de Carnes","INAC"],["Dirección General Impositiva","DGI"],["Instituto Nacional de Empleo y Formación Profesional","INEFOP"],["Instituto del Niño y Adolescente del Uruguay","INAU"],["Banco de Seguros del Estado","BSE"],["Instituto de Regulación y Control del Cannabis","IRCCA"],["Instituto Uruguayo de Meteorología","INUMET"],["Unidad Reguladora de Servicios de Comunicaciones","URSEC"],["Unidad Reguladora de Servicios de Energía y Agua","URSEA"],["Administración Nacional de Puertos","ANP"],["Instituto Geográfico Militar","IGM"],["Instituto Nacional de Evaluación Educativa","INEEd"],["Oficina Nacional del Servicio Civil","ONSC"],["Agencia Reguladora de Compras Estatales","ARCE"],["Unidad Nacional de Seguridad Vial","UNASEV"],["Cámara de Industrias del Uruguay","CIU"],["Cámara Uruguaya de Tecnologías de la Información","CUTI"],["Sistema Nacional de Emergencias","SINAE"]];
+function institutionLabel(value,short=false){return String(value).split(/( \/ | · |; | y )/).map(part=>{const entry=institutionNames.find(([full,abbr])=>norm(part)===norm(full)||norm(part)===norm(abbr));return entry?(short?entry[1]:entry[0]+' ('+entry[1]+')'):part;}).join('');}
 const groups=[
  ['udelar','Udelar',['udelar','universidad de la republica']],
  ['bcu','Banco Central del Uruguay',['bcu','banco central del uruguay']],
@@ -622,8 +626,9 @@ const groups=[
  ['cuti','CUTI',['cuti','observatorio ti de cuti y advice']],
  ['onu','ONU · División de Estadística',['onu division de estadistica']]
 ];
+groups.forEach(g=>{g[1]=institutionLabel(g[1]);});
 const hasPhrase=(text,phrase)=>(' '+norm(text)+' ').includes(' '+norm(phrase)+' ');
-function producer(r){const found=groups.find(g=>g[2].some(a=>hasPhrase(r.inst,a)));return found?{id:found[0],label:found[1],aliases:found[2]}:{id:norm(r.inst),label:r.inst,aliases:[norm(r.inst)]};}
+function producer(r){const found=groups.find(g=>g[2].some(a=>hasPhrase(r.inst,a)));return found?{id:found[0],label:found[1],aliases:found[2]}:{id:norm(r.inst),label:institutionLabel(r.inst),aliases:[norm(r.inst),norm(institutionLabel(r.inst))]};}
 const producers=new Map();R.forEach(r=>{const p=producer(r);if(!producers.has(p.id))producers.set(p.id,{...p,items:[]});producers.get(p.id).items.push(r);});
 const STOP=new Set(['de','del','la','las','el','los','en','y','o','a','para','con','sobre','por','un','una','datos','dato','uruguay','observatorio','observatorios']);
 const concepts=Object.entries(T).flatMap(([id,t])=>[t.nombre,...t.sin].map(s=>({id,phrase:norm(s)}))).filter(c=>c.phrase.length>2).sort((a,b)=>b.phrase.length-a.phrase.length);
@@ -641,25 +646,25 @@ function search(q=state.q){
  return {r,score,pass};}).filter(x=>x.pass).sort((a,b)=>b.score-a.score||a.r.nombre.localeCompare(b.r.nombre,'es')).map(x=>x.r);
  return {list,institutionMatches,topicIds};
 }
-function card(r){return `<article class="card"><div class="meta">${esc(r.tipo)}<span class="amb">${esc(r.ambito)}</span></div><h3>${esc(r.nombre)}</h3><div class="inst">${esc(r.inst)}</div><p class="desc">${esc(r.desc)}</p><div class="resource-actions"><a class="visit" href="${esc(r.url)}" target="_blank" rel="noopener">Visitar sitio ↗<span class="sr-only"> (abre en otra pestaña)</span></a><button class="more" data-ficha="${esc(r.id)}" aria-expanded="false" aria-controls="f-${esc(r.id)}">Más información</button></div><dl class="ficha" id="f-${esc(r.id)}" hidden><dt>Tema</dt><dd>${esc(T[r.tema].nombre)}</dd><dt>Alcance</dt><dd>${esc(r.alcance)}</dd><dt>Descarga</dt><dd>${esc(r.descarga)}</dd>${r.periodo?`<dt>Período de los datos</dt><dd>${esc(r.periodo)}</dd>`:''}${r.notas?`<dt>Notas</dt><dd>${esc(r.notas)}</dd>`:''}</dl></article>`;}
+function card(r){return `<article class="card"><div class="meta">${esc(r.tipo)}<span class="amb">${esc(r.ambito)}</span></div><h3>${esc(r.nombre)}</h3><div class="inst" title="${esc(institutionLabel(r.inst))}">${esc(institutionLabel(r.inst,true))}</div><p class="desc">${esc(r.desc)}</p><div class="resource-actions"><a class="visit" href="${esc(r.url)}" target="_blank" rel="noopener">Visitar sitio ↗<span class="sr-only"> (abre en otra pestaña)</span></a><button class="more" data-ficha="${esc(r.id)}" aria-expanded="false" aria-controls="f-${esc(r.id)}">Más información</button></div><dl class="ficha" id="f-${esc(r.id)}" hidden><dt>Tema</dt><dd>${esc(T[r.tema].nombre)}</dd><dt>Alcance</dt><dd>${esc(r.alcance)}</dd><dt>Descarga</dt><dd>${esc(r.descarga)}</dd>${r.periodo?`<dt>Período de los datos</dt><dd>${esc(r.periodo)}</dd>`:''}${r.notas?`<dt>Notas</dt><dd>${esc(r.notas)}</dd>`:''}</dl></article>`;}
 function render(){
- const {list,institutionMatches}=search();$('#resTitle').textContent=state.q?`Resultados para «${state.q}»`:'Recursos disponibles';
- $('#count').textContent=`${list.length} ${list.length===1?'recurso':'recursos'}`;
+ const {list,institutionMatches}=search();$('#resTitle').textContent=state.q?`Resultados para «${state.q}»`:'Fuentes disponibles';
+ $('#count').textContent=`${list.length} ${list.length===1?'fuente':'fuentes'}`;
  const active=[state.area,state.inst?producers.get(state.inst)?.label:'',state.amb,state.download?'Con descarga':'',...institutionMatches.map(id=>producers.get(id).label)].filter(Boolean);
  $('#interp').textContent=active.length?'Selección: '+[...new Set(active)].join(' · '):'';
  $('#results').innerHTML=list.length?Object.entries(A).map(([key,area])=>{
   const items=list.filter(r=>r.area===area);if(!items.length)return '';
   const limit=areaLimits[key]||6;
-  return `<section class="resource-block" aria-labelledby="block-${key}"><div class="resource-block-head"><h3 id="block-${key}">${esc(area)}</h3><span>${items.length} ${items.length===1?'recurso':'recursos'}</span></div><div class="results">${items.slice(0,limit).map(card).join('')}</div>${items.length>limit?`<button class="showall" data-more-area="${key}">Ver más de esta área (${items.length-limit} restantes)</button>`:''}</section>`;
+  return `<section class="resource-block" aria-labelledby="block-${key}"><div class="resource-block-head"><h3 id="block-${key}">${esc(area)}</h3><span>${items.length} ${items.length===1?'fuente':'fuentes'}</span></div><div class="results">${items.slice(0,limit).map(card).join('')}</div>${items.length>limit?`<button class="showall" data-more-area="${key}">Ver más de esta área (${items.length-limit} restantes)</button>`:''}</section>`;
  }).join(''):'<div class="empty">No encontramos coincidencias. Probá otra palabra o limpiá los filtros.</div>';
  $('#clearFilters').disabled=!(state.area||state.inst||state.amb||state.download);
 }
 const resetFilters=()=>{state.area='';state.inst='';state.amb='';state.download=false;state.limit=24;$('#areaFilter').value='';$('#institutionFilter').value='';$('#scopeFilter').value='';$('#downloadFilter').checked=false;};
 function openResults(q=state.q){state.q=q;state.limit=24;$('#heroQ').value=q;$('#resultados').hidden=false;render();$('#resultados').scrollIntoView({behavior:'auto',block:'start'});$('#resTitle').focus({preventScroll:true});}
-$('#filters').innerHTML=`<h3>Filtrar recursos</h3><label for="areaFilter">Tema general</label><select id="areaFilter"><option value="">Todos los temas</option>${Object.values(A).map(a=>`<option value="${esc(a)}">${esc(a)}</option>`).join('')}</select><label for="institutionFilter">Institución</label><select id="institutionFilter"><option value="">Todas las instituciones</option>${[...producers.values()].sort((a,b)=>a.label.localeCompare(b.label,'es')).map(p=>`<option value="${esc(p.id)}">${esc(p.label)}</option>`).join('')}</select><label for="scopeFilter">Ámbito</label><select id="scopeFilter"><option value="">Todos</option>${['Nacional','Departamental','Internacional'].map(a=>`<option>${a}</option>`).join('')}</select><label class="check"><input id="downloadFilter" type="checkbox"> Con descarga confirmada</label><button class="reset" id="clearFilters" data-act="clear">Limpiar filtros</button>`;
-$('#areas').innerHTML=Object.entries(A).map(([k,a])=>{const ts=Object.entries(T).filter(([id,t])=>t.area===k).map(([id,t])=>({id,t,n:R.filter(r=>r.tema===id||r.temas_sec.includes(id)).length})).filter(x=>x.n);return `<div class="area"><header><span class="gc"><svg class="glyph" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--${k.toLowerCase()})"><use href="#o-${k}"/></svg></span><h3>${esc(a)}</h3></header><div class="tiles">${ts.map(({id,t,n})=>`<button class="tile available" data-topic="${id}"><span class="tn">${esc(t.nombre)}</span><span class="tc">${n}</span></button>`).join('')}</div></div>`;}).join('');
+$('#filters').innerHTML=`<h3>Filtrar fuentes</h3><label for="areaFilter">Tema general</label><select id="areaFilter"><option value="">Todos los temas</option>${Object.values(A).map(a=>`<option value="${esc(a)}">${esc(a)}</option>`).join('')}</select><label for="institutionFilter">Institución</label><select id="institutionFilter"><option value="">Todas las instituciones</option>${[...producers.values()].sort((a,b)=>a.label.localeCompare(b.label,'es')).map(p=>`<option value="${esc(p.id)}">${esc(p.label)}</option>`).join('')}</select><label for="scopeFilter">Ámbito</label><select id="scopeFilter"><option value="">Todos</option>${['Nacional','Departamental','Internacional'].map(a=>`<option>${a}</option>`).join('')}</select><label class="check"><input id="downloadFilter" type="checkbox"> Con descarga confirmada</label><button class="reset" id="clearFilters" data-act="clear">Limpiar filtros</button>`;
+$('#areas').innerHTML=Object.entries(A).sort((a,b)=>a[1].localeCompare(b[1],'es',{sensitivity:'base'})).map(([k,a])=>{const ts=Object.entries(T).filter(([id,t])=>t.area===k).map(([id,t])=>({id,t,n:R.filter(r=>r.tema===id||r.temas_sec.includes(id)).length})).filter(x=>x.n).sort((a,b)=>a.t.nombre.localeCompare(b.t.nombre,'es',{sensitivity:'base'}));return `<div class="area"><header><span class="gc"><svg class="glyph" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--${k.toLowerCase()})"><use href="#o-${k}"/></svg></span><h3>${esc(a)}</h3></header><div class="tiles">${ts.map(({id,t,n})=>`<button class="tile available" data-topic="${id}"><span class="tn">${esc(t.nombre)}</span><span class="tc">${n}</span></button>`).join('')}</div></div>`;}).join('');
 let showAllInstitutions=false;
-function renderInstitutions(){const q=norm($('#institutionSearch').value);const items=[...producers.values()].filter(p=>norm([p.label,...p.aliases].join(' ')).includes(q)).sort((a,b)=>a.label.localeCompare(b.label,'es'));const shown=q||showAllInstitutions?items:items.slice(0,12);$('#institutionList').innerHTML=shown.map(p=>`<button class="institution-entry" data-institution="${esc(p.id)}"><span>${esc(p.label)}</span><small>${p.items.length} ${p.items.length===1?'recurso':'recursos'}</small></button>`).join('')||'<p>No encontramos esa institución.</p>';$('#moreInstitutions').hidden=!!q||showAllInstitutions||items.length<=12;}
+function renderInstitutions(){const q=norm($('#institutionSearch').value);const items=[...producers.values()].filter(p=>norm([p.label,...p.aliases].join(' ')).includes(q)).sort((a,b)=>a.label.localeCompare(b.label,'es'));const shown=q||showAllInstitutions?items:items.slice(0,12);$('#institutionList').innerHTML=shown.map(p=>`<button class="institution-entry" data-institution="${esc(p.id)}"><span>${esc(p.label)}</span><small>${p.items.length} ${p.items.length===1?'fuente':'fuentes'}</small></button>`).join('')||'<p>No encontramos esa institución.</p>';$('#moreInstitutions').hidden=!!q||showAllInstitutions||items.length<=12;}
 $('#institutionSearch').addEventListener('input',renderInstitutions);
 $('#moreInstitutions').addEventListener('click',()=>{showAllInstitutions=true;renderInstitutions();});
 renderInstitutions();
@@ -682,3 +687,4 @@ render();
 })();
 
 </script>
+
